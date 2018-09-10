@@ -1,0 +1,67 @@
+/**
+ * modified theme for reveal.js.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Roboto+Mono:400,500,700,700i');
+
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+// Solarized colors
+$base03:    #2b2d5c;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #efefef;
+$base2:     #ff4547;
+$base3:     #89e7f4;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $base1;
+$headingColor: $base2;
+$headingSubColor: $base3;
+$headingTextShadow: none;
+$backgroundColor: $base03;
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $magenta;
+$headingTextTransform: capitalize;
+$headingFont: "Courier New", 'Roboto Mono', monospace;
+$mainFont: "Courier New", 'Roboto Mono', monospace;
+
+.footnote{
+    font-family: 'Open Sans', sans-serif;
+    font-size:0.7em;
+    display: table-cell;
+    vertical-align: bottom;
+}
+.lecture-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size:0.9em;
+}
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
