@@ -290,3 +290,6 @@ body {
   font-size: 0.9em;
   color: #ff4547;
   padding-top: 2em; }
+
+.reveal table {
+  color: #efefef; }

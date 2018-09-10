@@ -36,7 +36,7 @@
 
                 <section>
                     <h2>Semester Plan</h2>
-                    <p><a href="../class/">Syllabus</a></p>
+                    <p><a href="index.html">Syllabus</a></p>
                 </section>
 
                 <section>
@@ -80,7 +80,7 @@
                     <h2>About Me</h2>
                     <ul>
                         <li>Born in Israel, grew up in a small town near the beach</li>
-                        <li>Bsc in Computer Science combined with BFa in Ceramic Design</li>
+                        <li>BSc in Computer Science combined with BFA in Ceramic Design</li>
                         <li>Software Engineer at Google</li>
                         <li>Masters at the MIT Media Lab</li>
                         <li>Currently at Fake Love (a New York Times Company)</li>
@@ -127,12 +127,10 @@
                     <h3>[Tools]</h3>
                     <h2>Resources</h2>
                     <ul>
-                        <li><a href="https://www.w3.org/"> W3C - standards</a></li>
                         <li><a href="https://developer.mozilla.org/">MDN web docs</a></li>
                         <li><a href="https://stackoverflow.com/">Stack overflow</a></li>
-                        <li><a href="https://codepen.io/">Codepen</a></li>
-                        <li><a href="https://glitch.com/">Glitch</a></li>
                         <li><a href="https://github.com/">Github</a></li>
+                        <li><a href="https://codepen.io/">Codepen</a>, <a href="https://glitch.com/">Glitch</a>, etc.</li>
                         <li>The Internet</li>
                     </ul>
                 </section>
@@ -237,62 +235,67 @@
                             b.onclick = function() {alert("Thanks for clicking!")};
                         </pre></code>
                     </div>
-                    <div class="footnote"><a href="https://codepen.io/jasrub/pen/EeodYd">* live example</a></div>
                 </section>
 
                 <section>
-                    <h2>How the web works</h2>
-
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7_LPdttKXPc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    <p>(old but still true)</p>
-
-
-                    <div class="footnote">Try typing 172.217.12.164 into your browser address bar</div>
+                    <h4> Live Example</h4>
+                    <p data-height="307" data-theme-id="0" data-slug-hash="EeodYd" data-default-tab="js,result" data-user="jasrub" data-pen-title="Button Example" class="codepen">See the Pen <a href="https://codepen.io/jasrub/pen/EeodYd/">Button Example</a> by Jasmin (<a href="https://codepen.io/jasrub">@jasrub</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
                 </section>
 
-                <section>
-                    <h2>How the web works - further reading</h2>
-                    <div>
+                    <section>
+                        <h2>How the web works</h2>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_LPdttKXPc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <p>(old but still true)</p>
+
+
+                        <div class="footnote">Try typing 172.217.12.164 into your browser address bar</div>
+                    </section>
+
+                    <section>
+                        <h2>How the web works - further reading</h2>
+                        <div>
+                            <ul>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works">MDN resources</a></li>
+                                <li><a href="https://github.com/alex/what-happens-when">"What happens when you type google.com into your browser's address box and press enter?"</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <h2>Assignment</h2>
+                        <div>
+                            Explore the internet and come up with a list of 3 websites you really like and explain why you like them.
+                            Here are some starting points:
+                        </div>
                         <ul>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works">MDN resources</a></li>
-                            <li><a href="https://github.com/alex/what-happens-when">"What happens when you type google.com into your browser's address box and press enter?"</a></li>
+                            <li><a href="https://www.awwwards.com/">Awwwards</a></li>
+                            <li><a href="https://www.siteinspire.com/">Site Inspire</a></li>
+                            <li><a href="https://thefwa.com/">the FWA</a></li>
                         </ul>
+                    </section>
                     </div>
-                </section>
-
-
-                <section>
-                    <h2>Assignment</h2>
-                    <div>
-                        Explore the internet and come up with a list of 3 websites you really like and explain why you like them.
-                        Here are some starting points:
-                    </div>
-                    <ul>
-                        <li><a href="https://www.awwwards.com/">Awwwards</a></li>
-                        <li><a href="https://www.siteinspire.com/">Site Inspire</a></li>
-                        <li><a href="https://thefwa.com/">the FWA</a></li>
-                    </ul>
-                </section>
             </div>
-        </div>
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-        <script>
-            // More info about config & dependencies:
-            // - https://github.com/hakimel/reveal.js#configuration
-            // - https://github.com/hakimel/reveal.js#dependencies
-            Reveal.initialize({
-                // Push each slide change to the browser history
-                history: true,
-                // Display a presentation progress bar
-                progress: true,
-                dependencies: [
-                    { src: 'plugin/markdown/marked.js' },
-                    { src: 'plugin/markdown/markdown.js' },
-                    { src: 'plugin/notes/notes.js', async: true },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-                ]
-            });
-        </script>
-    </body>
-</html>
+            <script src="lib/js/head.min.js"></script>
+            <script src="js/reveal.js"></script>
+            <script>
+                // More info about config & dependencies:
+                // - https://github.com/hakimel/reveal.js#configuration
+                // - https://github.com/hakimel/reveal.js#dependencies
+                Reveal.initialize({
+                    // Push each slide change to the browser history
+                    history: true,
+                    // Display a presentation progress bar
+                    progress: true,
+                    dependencies: [
+                        { src: 'plugin/markdown/marked.js' },
+                        { src: 'plugin/markdown/markdown.js' },
+                        { src: 'plugin/notes/notes.js', async: true },
+                        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                    ]
+                });
+            </script>
+            </body>
+        </html>
