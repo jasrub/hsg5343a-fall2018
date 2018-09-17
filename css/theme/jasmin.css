@@ -280,10 +280,14 @@ body {
 
 .reveal .footnote {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.7em;
+  font-size: 0.6em;
   text-align: center;
-  padding-top: 3em;
+  padding-top: 1.5em;
   color: #ff4547; }
+
+.reveal .content {
+  font-size: 0.6em;
+  text-align: left; }
 
 .reveal .lecture-title {
   font-family: 'Open Sans', sans-serif;

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Web Programming I: Lecture 2: HTML</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/jasmin.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h4>SVA HSG5343a Fall 2018</h4>
+                <h1>Web Programming I</h1>
+
+                <div class="lecture-title">Lecture 02 - HTML</div>
+
+                <br/>
+                <p>Jasmin Rubinovitz</p>
+                <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+            </section>
+
+
+
+            <section>
+                <h3>Reminder</h3>
+                <br/>
+                <br/>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="color:hotpink">HTML</th>
+                            <th>CSS</th>
+                            <th>Javascript</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color:hotpink">Structure</td>
+                            <td>Look</td>
+                            <td>Behavior</td>
+                            <td>Content</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>HTML</h2>
+                <h4><b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage</h4>
+                <ul>
+                    <li>Creates the structure of a web page</li>
+                    <li>Gives Semantic meaning to the content</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Brief History</h3>
+                <ul class="content">
+                    <li>Tim Berners-Lee, then a contractor at CERN, specified HTML and wrote the browser and server software in late 1990.</li>
+                    <li><a href="https://www.ietf.org/">IETF</a> began formally specifying HTML in 1993, and after several drafts released version 2.0 in 1995</li>
+                    <li>In 1996, the <a href="https://www.w3.org/">W3C</a> (founded by Berners-Lee) took over the HTML work and published the HTML 3.2 recommendation a year later
+                    <li>HTML 4.0 was released in 1999 and became an ISO standard in 2000</li>
+                    <li>In 2004, <a href="https://whatwg.org/">WHATWG</a> unhappy with slow progress by W3C started formulating a new HTML spec</li>
+                    <li> The two organizations released the first draft for HTML 5 spec in 2008 and the final standard in 2014</li>
+                    <li>HTML 5.0 is the current and latest standard</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>Tools</h2>
+            </section>
+            <section>
+                <h3>Text Editors</h3>
+                <ul>
+                    <li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
+                    <li><a href="https://atom.io/">Atom</a></li>
+                    <li><a href="https://code.visualstudio.com/">VS Code</a></li>
+                    <li><a href="http://brackets.io/">Brackets</a></li>
+                </ul>
+
+                <div class="footnote">* Those are just recommendations.<br/> Use which editor you want, just <b>not Dreamweaver</b></div>
+            </section>
+
+            <section>
+                <h3>Folder Structure</h3>
+                <p class="content">
+                    Save all of your website related files in one folder (on your computer for now).
+                    <br/>
+                    This folder should contain all the web pages, images and other media.
+                </p>
+                <img src="images/lecture02/folder_structure.png"/>
+                <div class="footnote">** File names should be all lowercase and have no spaces</div>
+            </section>
+
+            <section>
+                <h3>HTML</h3>
+                <h4><b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage</h4>
+                <ul>
+                    <li>A set of "tags" are added to a page define its structure</li>
+                    <li>Documents are "linked" to other documents</li>
+                    <li>Tree-like representation of a page structure</li>
+                    <li>Most whitespace is insignificant in HTML. That is, if you have a long run of whitespace, it is all collapsed into a single space</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <h3>Anatomy of an html element</h3>
+
+                <img src="images/lecture02/element_anatomy.png"/>
+
+            </section>
+
+            <section>
+                <h3>Structure of an HTML Page</h3>
+                <h4>Base Tags</h4>
+                <ul class="content">
+                    <li>There is a specific structure of tags that needs to exist in each HTML document</li>
+                    <li>The file always starts with an opening <code>&lt;html&gt;</code> tag and ends with a closing <code>&lt;/html&gt;</code> tag. </li>
+                    <li>The <b>!DOCTYPE</b> tag tells the browser this is an HTML file and must be the first thing at the top of every html file </li>
+                    <li>The <code>&lt;html&gt;</code> element will include 2 direct children tags: <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code></li>
+                </ul>
+                <div>
+                    <pre><code data-trim  data-noescape class="html">
+                        &lt;!DOCTYPE  html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                        </code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h4>Base Tags</h4>
+
+                <div class="content">
+                    The <b><code>&lt;head&gt;</code> tag</b> includes information about the page (e.g., title, abstract, stylesheet declarations, keywords).Its content does not appear in the rendered document. The title is displayed on title bar of the web browser and it is used as the name of your bookmark.
+                </div>
+
+                <div>
+                    <pre><code data-trim  data-noescape class="html">
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html&gt;
+                            &lt;head&gt;
+                                &lt;title&gt; Moby Dick &lt;/title&gt;
+                                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                        </code></pre>
+                </div>
+
+
+            </section>
+
+            <section>
+                <h4>Base Tags</h4>
+
+                <div class="content">
+                    The <b><code>&lt;body&gt;</code> tag</b> includes the content of the page. There are many ways to create content.
+                    Tags that will be rendered on the screen go inside the <code>&lt;body&gt;</code> tag.
+                </div>
+
+                <div>
+                    <pre><code data-trim  data-noescape class="html">
+                        &lt;!DOCTYPE html&gt;
+                            &lt;head&gt;
+                            &lt;/head&gt;
+                            &lt;body&gt;
+                                &lt;h1&gt; Moby Dick - Chapter 1 &lt;/h1&gt;
+                                &lt;p&gt; Ahab stood up to the blast...&lt;/p&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                        </code></pre>
+                </div>
+
+
+            </section>
+
+            <section>
+                <h2>HTML Elements</h2>
+            </section>
+
+            <section> 
+                <h2>Basic Elements</h2>
+            </section>
+
+            <section>
+                <h3>h1 - main header</h3>
+                <img src="images/lecture02/h1.png"/>
+                <div class="footnote">** By default headers and paragraphs include spacing above and below</div>
+            </section>
+
+            <section>
+                <h3>p - paragraph</h3>
+                <img src="images/lecture02/paragraph.png"/>
+                <div class="footnote">** By default headers and paragraphs include spacing above and below</div>
+            </section>
+
+            <section>
+                <h3>h# - headers</h3>
+                <img src="images/lecture02/titles.png"/>
+            </section>
+
+            <section>
+                <h3>a (anchor) - Links</h3>
+                <img src="images/lecture02/link.png"/>
+
+                <p>Can be to any page on the web, or your own page:</p>
+                <pre><code data-trim class="html">
+                            <a href="my-other-page.html">Go to my other page!</a>
+                        </code></pre>
+            </section>
+
+            <section>
+                <h3>img - images </h3>
+                <img src="images/lecture02/image.png"/>
+
+                <div class="footnote">img tag does not require a closing tag. The required alt attribute specifies an alternate text for an image, if the image cannot be displayed.</div>
+            </section>
+
+            <section>
+                <h3>img - images </h3>
+                <ul class="content">
+                    <li><code>&lt;img /&gt;</code></li>
+                    <li>The <code>src</code> attribute specifies the image URL</li>
+                    <li>If image is placed inside of an anchor tag, image will become a link.  To remove the link border, user the <code>border</code> attribute with value 0</li>
+                    <li>Example: 
+                        <pre><code data-trim class="html">&lt;a href="http://www.google.com/" target="_blank"&gt;&lt;img src="http://www.google.com/intl/en_ALL/images/logo.gif" border="0" alt="Google" /&gt;&lt;/a&gt;</code></pre>Try it: <br/><a href="http://www.google.com/" target="_blank"><img src="http://www.google.com/intl/en_ALL/images/logo.gif" border="0" alt="Google" /></a></li>
+                </ul>
+            </section>
+
+
+
+            <section>
+                <h3>"Container" tags</h3>
+                <pre>
+                <code data-trim class="html">
+                    &lt;header&gt; &hellip; &lt;/header&gt;
+                    &lt;footer&gt; &hellip; &lt;/footer&gt;
+                    &lt;article&gt; &hellip; &lt;/article&gt;
+                    &lt;section&gt; &hellip; &lt;/section&gt;
+                    &lt;nav&gt; &hellip; &lt;/nav&gt;
+                </code>
+                </pre>
+                <div class="content">
+                    Those tags have only a semantic meaning. No default visual styling. In most cases those elements behave as containers and contain other elements inside.
+                </div>
+            </section>
+
+            <section>
+                <h3>HTML - Tree Structure </h3>
+                <pre>
+                        <code data-trim class="html">
+                        &lt;section&gt;
+                            &lt;h1&gt;Article Title&lt;/h1&gt;
+                            &lt;article&gt;
+                                &lt;h2&gt;Section Title&lt;/h2&gt;
+                                &lt;p&gt;Content&lt;/p&gt;
+                            &lt;/article&gt;
+                            &lt;article&gt;
+                                &lt;h2&gt;Section Title&lt;/h2&gt;
+                                &lt;p&gt;Content&lt;/p&gt;
+                            &lt;/article&gt;
+                        &lt;/section&gt;
+                        </code>
+                    </pre>
+            </section>
+
+            <section>
+                <h3>HTML - Tree Structure </h3>
+                <img src="images/lecture02/tree2.png"/>
+            </section>
+
+            <section>
+                <h3>HTML - Tree Structure </h3>
+                <img src="images/lecture02/tree3.png"/>
+            </section>
+
+            <section>
+                <h3>HTML - Tree Structure </h3>
+                <img src="images/lecture02/tree4.png"/>
+            </section>
+
+            <section>
+                <h5>Block-level elements</h5>
+                <p>contain an entire large region of text</p>
+                <ul class="content">
+                    <li><code>&lt;p&gt;</code><code>&lt;/p&gt;</code> - Paragraph</li>
+                    <li><code>&lt;h#&gt;</code><code>&lt;/h#&gt;</code> - Header</li>
+                    <li><code>&lt;hr/&gt;</code> - Horizontal rule; a long horizontal line</li>
+                    <li><code>&lt;ul&gt;</code><code>&lt;/ul&gt;</code> and <code>&lt;li&gt;</code><code>&lt;/li&gt;</code> - Unordered list; <code>&lt;ul&gt;</code><code>&lt;/ul&gt;</code> is a single block of bulleted-list items; each <code>&lt;li&gt;</code><code>&lt;/li&gt;</code> inside the <code>&lt;ul&gt;</code> is an item of the list</li>
+                    <li><code>&lt;ol&gt;</code><code>&lt;/ol&gt;</code> and <code>&lt;li&gt;</code><code>&lt;/li&gt;</code> - Ordered list; <code>&lt;ol&gt;</code><code>&lt;/ol&gt;</code> is a single block of ordered-list items; each <code>&lt;li&gt;</code><code>&lt;/li&gt;</code> inside the <code>&lt;ol&gt;</code> is an item of the list</li>
+                    <li><code>&lt;blockquote&gt;</code><code>&lt;/blockquote&gt;</code> - A block of quotation</li>
+                    <li><code>&lt;div&gt;</code><code>&lt;/div&gt;</code> - Division; generic block element (more on this in CSS)</li>
+                    <li><code>&lt;table&gt;</code><code>&lt;/table&gt;</code> - Table</li>
+                    <li><code>&lt;form&gt;</code><code>&lt;/form&gt;</code> - Web form</li>
+                </ul>
+            </section>
+            <section>
+                <h5>Inline-level elements</h5>
+
+                <p>affect a small region of text; nested inside a block-level element</p>
+                <ul class="content">
+                    <li><code>&lt;br/&gt;</code> - A forced line break</li>
+                    <li><code>&lt;code&gt;</code><code>&lt;/code&gt;</code> - Display text in a fixed-width font (Courier).  Makes text look like source code.</li>
+                    <li><code>&lt;a&gt;</code><code>&lt;/a&gt;</code> - Anchor; a link to another page.  Use <code>href</code> attribute to specify the destination URL</li>
+                    <li><code>&lt;img /&gt;</code> - Image</li>
+                    <li><code>&lt;b&gt;</code><code>&lt;/b&gt;</code> - Presentation: bold (old)</li>
+                    <li><code>&lt;strong&gt;</code><code>&lt;/strong&gt;</code> - Presentation: strongly emphasized text (bold)</li>
+                    <li><code>&lt;i&gt;</code><code>&lt;/i&gt;</code> - Presentation: italics (old)</li>
+                    <li><code>&lt;em&gt;</code><code>&lt;/em&gt;</code> - Presentation: emphasized text (italics)</li>
+                    <li><code>&lt;u&gt;</code><code>&lt;/u&gt;</code> - Presentation: underline</li>
+                    <li><code>&lt;sub&gt;</code><code>&lt;/sub&gt;</code> - Presentation: subscript</li>
+                    <li><code>&lt;sup&gt;</code><code>&lt;/sup&gt;</code> - Presentation: superscript</li>
+                    <li><code>&lt;span&gt;</code><code>&lt;/span&gt;</code> - Generic inline element (more on this in CSS)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>References</h3>
+                <ul>
+                    <li>Mozilla Dev <a href="https://developer.mozilla.org/">developer.mozilla.org</a></li>
+                    <li>Web Platform <a href="https://webplatform.github.io/">webplatform.github.io</a></li>
+                    <li>Tag Reference <a href="https://www.w3schools.com/tags/">www.w3schools.com/tags</a></li>
+                    <li>Validator <a href="http://validator.w3.org/">validator.w3.org</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>More on HTML Tags and Attributes</h3>
+                <ul class="content">
+                    <li>Most inline-level elements stay on the same line,<br/>and most block-level automatically create new lines.</li>
+                    <li>Some tags can contain (multiple) attributes.<br/>You can place the attributes in any order.  Example: <br/><code data-trim class="html">&lt;a href="http://www.google.com" target="_blank"&gt;Click here&lt;/a&gt;</code></li>
+                    <li>Some tags can be open and closed in one tag<br/>(i.e., no matching end tag).  Examples:
+                        <ul>
+                            <li><code data-trim class="html">&lt;br/&gt;</code></li>
+                            <li><code>&lt;img src="krusty.jpg" width="200" height="200" alt="Krusty the Clown" /&gt;</code></li>
+                        </ul>
+                    </li>
+                    <li>Nesting tags: very important to nest tags correctly
+                        <ul>
+                            <li>Closing tag must match the <span class="stress">most recently</span> opened tag</li>
+                            <li>Example:</li>
+                        </ul>
+                        <pre><code data-trim class="html">&lt;p&gt;Remember folks, there is &lt;em&gt;no class&lt;/em&gt; on &lt;strong&gt;Thursday, February 21st&lt;/strong&gt;!&lt;/p&gt;</code></pre>
+                    </li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h3>Common Errors in HTML</h3>
+                <ul class="content">
+                    <li>Not closing a tag</li>
+                    <li>Not closing a list</li>
+                    <li>Improper nesting (document will likely still be rendered, but ugly)</li>
+                    <li>Forgetting to put double-quotes around values of attributes</li>
+                    <li>Forgetting important attributes for tags (e.g., <code>alt</code> for an image)</li>
+                    <li>Using upper-case / lower-case tag names interchangeably</li>
+                    <li>Hardly anything is enforced in HTML.  Even if there is an error, the page will most likely still render!</li>
+                </ul>
+            </section>
+
+
+
+
+            <section>
+                <h2>Assignment</h2>
+                <div class="content">
+                    <p>
+                    Create an HTML5 page to introduce yourself. 
+                    <br/>
+                    Name it <b><code>index.html</code></b>
+                    <br/>
+                    </p>
+                    The page should include at least the following sections:
+                    <ul>
+                        <li>A title (This can be your name or anything else)</li>
+                        <li>A list (you can list your skills, or your favorite foods or movies or any other list you would like to include)</li>
+                        <li>An image</li>
+                        <li>A link to a website of your choice</li>
+                    </ul>
+                    <p>
+                    Check that your HTML page passes the official HTML5 specifications via <a href="https://validator.w3.org/">validator.w3.org</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            // Push each slide change to the browser history
+            history: true,
+            // Display a presentation progress bar
+            progress: true,
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
+</html>
