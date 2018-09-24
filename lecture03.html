@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 3: HTML II + Git</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 3 - HTML II + Git</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+
+
+                <section>
+                    <h3>Reminder</h3>
+                    <br/>
+                    <br/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="color:hotpink">HTML</th>
+                                <th>CSS</th>
+                                <th>Javascript</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color:hotpink">Structure</td>
+                                <td>Look</td>
+                                <td>Behavior</td>
+                                <td>Content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>More About Semantic Tags</h2>
+                    <p>HTML5 Introduced new tags to improve the semantic markup<br/>
+                        A semantic element clearly describes its meaning to both the browser and the developer.
+                    </p>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>&lt;article&gt;</li>
+                        <li>&lt;aside&gt;</li>
+                        <li>&lt;details&gt;</li>
+                        <li>&lt;figcaption&gt;</li>
+                        <li>&lt;figure&gt;</li>
+                        <li>&lt;footer&gt;</li>
+                        <li>&lt;header&gt;</li>
+                        <li>&lt;main&gt;</li>
+                        <li>&lt;mark&gt;</li>
+                        <li>&lt;nav&gt;</li>
+                        <li>&lt;section&gt;</li>
+                        <li>&lt;summary&gt;</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Semantic Elements and Structure</h3>
+                    <img src="images/lecture03/semantic.png" alt="page structure" class="stretch"/>
+                </section>
+
+                <section>
+                    <h4>Why Use Semantic Tags:</h4>
+                    <ul>
+                        <li>accessibility - help assistive technologies read and interpret your webpage</li>
+                        <li>searchability - help computers make sense of your content</li>
+                        <li>internationalization </li>
+                        <li>interoperability - help other programmers understand the structure of your webpage</li>
+                    </ul>
+                    <p class="footnote">References:
+                        <a href=" https://codepen.io/mi-lee/post/an-overview-of-html5-semantics">codepen.io/mi-lee/post/an-overview-of-html5-semantics</a>
+                        <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">www.w3schools.com/html/html5_semantic_elements.asp</a>
+                    </p>
+
+
+
+                </section>
+
+                <section>
+                    <h2>Other Interesting Tags</h2>
+                    <!--                tables, forms, video, audio, progress, mark, -->
+                </section>
+
+                <section>
+                    <h2> Audio and Video</h2>
+                    <article>
+                        <pre><code data-trim  data-noescape class="html">
+                    &lt;audio src="my-file.mp3" loop controls autoplay&gt; &lt;/audio&gt;
+                    </code></pre>
+
+                        <pre><code data-trim  data-noescape class="html">
+                        &lt;video src="mov_bbb.mp4" loop controls autoplay&gt;
+                            &lt;p&gt;Your browser doesn't support HTML5 video. Here is a &lt;a href="mov_bbb.mp4">link to the video&lt;/a&gt; instead.&lt;/p&gt;
+                        &lt;/video&gt;
+                    </code></pre>
+
+                        <pre><code data-trim  data-noescape class="html">
+                        &lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;
+                          &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot;&gt;
+                          &lt;source src=&quot;movie.ogg&quot; type=&quot;video/ogg&quot;&gt;
+                          Your browser does not support the video tag.
+                        &lt;/video&gt;
+                    </code></pre>
+
+                        <audio src="images/lecture03/bensound-ukulele.mp3" loop controls> </audio>
+
+                        <video src="images/lecture03/mov_bbb.mp4" controls>
+                        </video>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Inputs</h2>
+                    <ul>
+                        <li>Create interactive controls</li>
+                        <li><code>type</code> attribute determines which controls will be shown</li>
+
+                        <article>
+                            <pre><code data-trim  data-noescape class="html">
+                        &lt;input type="text"&gt;
+                        &lt;input type="date"&gt;
+                        &lt;input type="color"&gt;
+                        &lt;input type="file"&gt;
+                        &lt;input type="checkbox"&gt;
+                        &lt;input type="radio"&gt;
+                        &lt;input type="password"&gt;
+                        &lt;input type="submit"&gt;
+                        </code></pre>
+                        </article>
+
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">developer.mozilla.org/en-US/docs/Web/HTML/Element/input</a>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Input Attributes</h3>
+                    <ul>
+                        <li>name</li>
+                        <li>autocomplete</li>
+                        <li>autofocus</li>
+                        <!--
+<li>form</li>
+<li>formaction</li>
+<li>formenctype</li>
+<li>formmethod</li>
+<li>formnovalidate</li>
+<li>formtarget</li>
+-->
+                        <li>height and width</li>
+                        <li>list</li>
+                        <li>min and max</li>
+                        <li>multiple</li>
+                        <li>pattern (regexp)</li>
+                        <li>placeholder</li>
+                        <li>required</li>
+                        <li>step</li>
+                    </ul>
+
+                </section>
+
+                <section>
+                    <h2>Input Labels</h2>
+
+                    <pre><code data-trim  data-noescape class="html">
+                    &lt;form&gt;
+                          &lt;label for=&quot;dog&quot;&gt;Dog&lt;/label&gt;
+                          &lt;input type=&quot;radio&quot; name=&quot;pet&quot; id=&quot;dog&quot; value=&quot;dog&quot;&gt;&lt;br&gt;
+                          &lt;label for=&quot;cat&quot;&gt;Cat&lt;/label&gt;
+                          &lt;input type=&quot;radio&quot; name=&quot;pet&quot; id=&quot;cat&quot; value=&quot;cat&quot;&gt;&lt;br&gt;
+                          &lt;label for=&quot;other&quot;&gt;Other&lt;/label&gt;
+                          &lt;input type=&quot;radio&quot; name=&quot;pet&quot; id=&quot;other&quot; value=&quot;other&quot;&gt;&lt;br&gt;&lt;br&gt;
+                          &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+                    &lt;/form&gt;
+                </code></pre>
+
+                    <form>
+                        <label for="dog">Dog</label>
+                        <input type="radio" name="pet" id="dog" value="dog"><br>
+                        <label for="cat">Cat</label>
+                        <input type="radio" name="pet" id="cat" value="cat"><br>
+                        <label for="other">Other</label>
+                        <input type="radio" name="pet" id="other" value="other"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+
+                </section>
+
+
+                <section>
+                    <h2>Inputs</h2>
+                    <ul>
+                        <li>Validations
+                            <ul>
+                                <li>"required" makes sure an input is not empty</li>
+                                <li>other validations such as "email" exist</li>
+                            </ul>
+                        </li>
+                        <li>textarea
+                            <ul>
+                                <li>Used for longer blocks of text</li>
+                                <li>Uses <code>&lt;textarea&gt;</code> tag</li>
+                                <li>Has "rows" and "cols" attributes to determine the size</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Inputs</h2>
+                    <h4>radios, checkboxes, and dropdowns</h4>
+                    <!--radio-->
+                    <input type="radio" name="pet" value="dog"> Dog<br>
+                    <input type="radio" name="pet" value="cat"> Cat<br>
+                    <input type="radio" name="pet" value="other"> Other
+                    <br>
+                    <br>
+                    <!--checkbox-->
+                    <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+                    <input type="checkbox" name="vehicle2" value="Car"> I have a car<br>
+                    <input type="checkbox" name="vehicle3" value="Boat" checked> I have a boat<br>
+                    
+                    <!--dropdown-->
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </section>
+                
+                <section>
+                    <h2>Code</h2>
+                    <pre>
+                    <code data-trim  data-noescape class="html">
+                    &lt;!--radio--&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;pet&quot; value=&quot;dog&quot;&gt; Dog&lt;br&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;pet&quot; value=&quot;cat&quot;&gt; Cat&lt;br&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;pet&quot; value=&quot;other&quot;&gt; Other
+
+                    &lt;!--checkbox--&gt;
+                    &lt;input type=&quot;checkbox&quot; name=&quot;vehicle1&quot; value=&quot;Bike&quot;&gt; I have a bike&lt;br&gt;
+                    &lt;input type=&quot;checkbox&quot; name=&quot;vehicle2&quot; value=&quot;Car&quot;&gt; I have a car&lt;br&gt;
+                    &lt;input type=&quot;checkbox&quot; name=&quot;vehicle3&quot; value=&quot;Boat&quot; checked&gt; I have a boat&lt;br&gt;
+                    
+                    &lt;!--dropdown--&gt;
+                    &lt;select&gt;
+                        &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+                        &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+                        &lt;option value=&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;
+                        &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+                    &lt;/select&gt;
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h1>Git</h1>
+                </section>
+
+                <section>
+                    <h2>Git - Why Use It?</h2>
+                    <p>Git and GitHub are tools for collaboration! Even if you’ve never written a line of code in your life, you can use these tools to share ideas, images, writing, and just about any kind of file that you create.</p>
+
+                    <p>The Git version control system is a powerful and flexible way to collect and back up versions of your work.</p>
+                </section>
+                
+                <section>
+                    <h2>Version Control</h2>
+                    <img src="images/lecture03/version_control.jpg" alt="version control" class="stretch"/>
+                </section>
+
+                <section>
+                    <h2>Version Control</h2>
+                    <p>Git is a time machine for code</p>
+                    <br>
+                    <article>
+                        similar concepts:
+                        <ul>
+                        <li>"track changes" feature in MS Word</li>
+                        <li>Wikipedia history</li>
+                        </ul>
+                    </article>
+
+                    
+                </section>
+                
+                <section>
+                    <h2>Git</h2>
+                    <img src="images/lecture03/git.png" alt="what is git" class="stretch"/>
+                    <br>
+                    <p class="footnote">
+                        <a href="https://git-scm.com">git-scm.com</a>
+                        <a href="https://education.github.com/git-cheat-sheet-education.pdf">Cheat Sheet</a>
+                    </p>
+                </section>
+
+
+                <section>
+                    <h2>Git is not Github</h2>
+                    <h5>Git</h5>
+                    <p>Distributed version Control Software,
+                    used to keep track of changes within a
+                    project by taking snapshots of files over time</p>
+                    <h5>Github</h5>
+                    <p>Online service that allows you to
+                    upload and share your git repositories.
+                        <a href="https://github.com/">github.com</a>
+                    </p>
+                </section>
+                
+                <section>
+                    <h2>How Git Works</h2>
+                    <ul>
+                        <li>Each project is stored in a <b>Repository</b></li>
+                        <li>The <b>state</b> is saved with every <b>commit</b> we make to the repository</li>
+                        <li>Each commit is represented by a long string of letters and numbers called a <b>hash</b></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Github.com</h2>
+                    <ul>
+                        <li>Web based hosting platform for Git repositories</li>
+                        <li>Very important site for sharing and reviewing code</li>
+                        <li>Nice GUIs available: <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Git "Areas"</h2>
+                    <img src="images/lecture03/git_areas.png" alt="git workflow" class="stretch"/>
+                </section>
+                
+                <section>
+                    <h5>Working Directory</h5>
+                    <p>Contains the current state of your files</p>
+                    <h5>Staging Area</h5>
+                    <p>Contains all the changes that will be included in your next commit</p>
+                    <h5>Git Repository</h5>
+                    <ul>
+                        <li>Where your whole project is stored</li>
+                        <li>Can contain work from many different people</li>
+                        <li>Contains all the commit objects from the life of the project</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Demo</h1>
+                </section>
+                
+                <section>
+                    We can use Git both through the command line or the GUI.
+                    <br>
+                    We will create a new repository, add files to it, commit them and push to Github
+                </section>
+                
+                <section>
+                    <h2>Useful Terminal Commands</h2>
+                    <code>
+                    <ul>
+                        <li>pwd</li>
+                        <li>ls (or ls -la)</li>
+                        <li>cd</li>
+                        <li>mkdir</li>
+                        <li>open</li>
+                    </ul>
+                    </code>
+                </section>
+                
+                <section>
+                    <h2>Git Terminal Commands</h2>
+                    <pre><code data-noescape data-trim  class="bash">
+                        git --help  #list all commands
+                        git help [command]  #help for s specific command
+                        git init  #initialize a repository in the current directory
+                        git status  #print the current status
+                        git log  #print all the git history
+                        git add [filename]  #add a file to the next commit
+                        git diff [filename]  #see the differences in a specific file
+                        git commit -m "[commit message]"
+                        git push
+                    </code></pre>
+                </section>
+
+
+
+                <section>
+                    <h2>Assignment</h2>
+                        <ol>
+                            <li>Create a free account on Github.com</li>
+                            <li>Go through <a href="https://guides.github.com/activities/hello-world/">https://guides.github.com/activities/hello-world/</a></li>
+                            <li>Send me a link to your "hello-world" repository</li>
+                        </ol>
+                </section>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
