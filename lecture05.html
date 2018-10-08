@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 5: CSS II</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 5 - CSS II</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+                <section>
+                    <h3>Today's plan - CSS continued</h3>
+                    <ul>
+                        <li>Box Model</li>
+                        <li>Positioning</li>
+                        <li>Layout</li>
+                        <li>Grid Practices</li>
+                        <li>Responsive Web Design</li>
+                    </ul>
+                    <!--
+
+<h5>next week:</h5>
+<ul>
+
+<li>Animations</li>
+<li>Frameworks</li>
+<li>Anything we don't finish today</li>
+</ul>
+-->
+                </section>
+
+
+                <!--
+Box Model
+Block and inline elements
+Note about "float"
+Positioning
+layout
+grid practices
+responsive web design
+-->
+
+                <section>
+                    <h3>Reminder from last week</h3>
+                </section>
+
+                <section>
+                    <h3>CSS Rule</h3>
+                    <img src="images/lecture04/css_rule2.png"/>
+                </section>
+
+
+                <section>
+                    <h5>Reminder</h5>
+                    <h3>Folder Structure</h3>
+                    <img src="images/lecture02/folder_structure.png"/>
+                </section>
+
+                <section>
+                    <h3>Styling HTML with CSS</h3>
+                    <div class="content">
+                        <p>CSS can be added to HTML elements in 3 ways:</p>
+                        <ul>
+                            <li><strong>External</strong> - by using an external CSS file. declare in <code>&lt;head&gt;</code> section [preferred] 
+                                <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></pre></li>
+                            <li><strong>Internal</strong> - by using a <code class="w3-codespan">&lt;style&gt;</code> element in the <code class="w3-codespan">&lt;head&gt;</code> section [meh]
+                                <pre><code data-trim  data-noescape class="html">
+                                &lt;style&gt;
+                                    body {background-color: powderblue;}
+                                    h1   {color: blue;}
+                                    p    {color: red;}
+                                &lt;/style&gt;
+                                </code></pre>
+                            </li>
+                            <li><strong>Inline</strong> - by using the style attribute in HTML elements [yuck]
+                                <pre><code>&lt;h1 style=&quot;color:blue;&quot;&gt;This is a Blue Heading&lt;/h1&gt;</code></pre>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>CSS Selectors</h3>
+                    <img src="images/lecture04/selectors_types.png"/>
+                </section>
+
+                <section>
+                    <h1>Box Model</h1>
+                </section>
+
+                <section>
+                    <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
+                </section>
+
+ 
+
+
+
+                <section>
+                    <h2>Assignment</h2>
+                    <ol class="content">
+                        <li>Add a styles.css file to your html file from 2 weeks ago</li>
+                        <li>Style your page using CSS</li>
+                        <li>Include at least 5 CSS rules and at least 1 id selector, 1 class selector and 1 type selector</li>
+                    </ol>
+                    <hr>
+                </section>
+
+                <section>
+                    <h2>Assignment - EXTRA</h2>
+                    <p><b>Further - Optional - Not Mandatory!!!</b></p>
+                    <ol class="content">
+                        <li>
+                            <ul>
+                                <li>Upload your website folder to Github</li>
+                                <li>(that way we can track changes and also serve it online for free)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>Download the html and css files from <a target="_blank" href="http://www.csszengarden.com/">www.csszengarden.com</a></li>
+                                <li>Duplicate the style.css file and call is style.old.css, keep the file for reference</li>
+                                <li>Try editing the style.css file to reflect your own style</li>
+                                <li>Explore how classes, ids and tags are used across the different designs</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
