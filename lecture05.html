@@ -15,7 +15,7 @@
             .reveal h3 {
                 text-transform: none;
             }
-            
+
         </style>
     </head>
     <body>
@@ -32,18 +32,18 @@
                     <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
                 </section>
 
-<!--
-                <section>
-                    <h3>Today's plan - CSS continued</h3>
-                    <ul>
-                        <li>Box Model</li>
-                        <li>Positioning</li>
-                        <li>Layout</li>
-                        <li>Grid Practices</li>
-                        <li>Responsive Web Design</li>
-                    </ul>
+                <!--
+<section>
+<h3>Today's plan - CSS continued</h3>
+<ul>
+<li>Box Model</li>
+<li>Positioning</li>
+<li>Layout</li>
+<li>Grid Practices</li>
+<li>Responsive Web Design</li>
+</ul>
 -->
-                    <!--
+                <!--
 
 <h5>next week:</h5>
 <ul>
@@ -56,7 +56,7 @@
                 </section>
 
 
-                <!--
+            <!--
 Box Model
 Block and inline elements
 Note about "float"
@@ -66,142 +66,315 @@ grid practices
 responsive web design
 -->
 
-                <section>
-                    <h3>Reminder from last week</h3>
-                </section>
+            <section>
+                <h3>Reminder from last week</h3>
+            </section>
 
-                <section>
-                    <h3>CSS Rule</h3>
-                    <img src="images/lecture04/css_rule2.png"/>
-                </section>
+            <section>
+                <h3>CSS Rule</h3>
+                <img src="images/lecture04/css_rule2.png"/>
+            </section>
 
 
-                <section>
-                    <h5>Reminder</h5>
-                    <h3>Folder Structure</h3>
-                    <img src="images/lecture02/folder_structure.png"/>
-                </section>
+            <section>
+                <h5>Reminder</h5>
+                <h3>Folder Structure</h3>
+                <img src="images/lecture02/folder_structure.png"/>
+            </section>
 
-                <section>
-                    <h3>Styling HTML with CSS</h3>
-                    <div class="content">
-                        <p>CSS can be added to HTML elements in 3 ways:</p>
-                        <ul>
-                            <li><strong>External</strong> - by using an external CSS file. declare in <code>&lt;head&gt;</code> section [preferred] 
-                                <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></pre></li>
-                            <li><strong>Internal</strong> - by using a <code class="w3-codespan">&lt;style&gt;</code> element in the <code class="w3-codespan">&lt;head&gt;</code> section [meh]
-                                <pre><code data-trim  data-noescape class="html">
+            <section>
+                <h3>Styling HTML with CSS</h3>
+                <div class="content">
+                    <p>CSS can be added to HTML elements in 3 ways:</p>
+                    <ul>
+                        <li><strong>External</strong> - by using an external CSS file. declare in <code>&lt;head&gt;</code> section [preferred] 
+                            <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></pre></li>
+                        <li><strong>Internal</strong> - by using a <code class="w3-codespan">&lt;style&gt;</code> element in the <code class="w3-codespan">&lt;head&gt;</code> section [meh]
+                            <pre><code data-trim  data-noescape class="html">
                                 &lt;style&gt;
                                     body {background-color: powderblue;}
                                     h1   {color: blue;}
                                     p    {color: red;}
                                 &lt;/style&gt;
                                 </code></pre>
-                            </li>
-                            <li><strong>Inline</strong> - by using the style attribute in HTML elements [yuck]
-                                <pre><code>&lt;h1 style=&quot;color:blue;&quot;&gt;This is a Blue Heading&lt;/h1&gt;</code></pre>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+                        </li>
+                        <li><strong>Inline</strong> - by using the style attribute in HTML elements [yuck]
+                            <pre><code>&lt;h1 style=&quot;color:blue;&quot;&gt;This is a Blue Heading&lt;/h1&gt;</code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-                <section>
-                    <h3>CSS Selectors</h3>
-                    <img src="images/lecture04/selectors_types.png"/>
-                </section>
+            <section>
+                <h3>CSS Selectors</h3>
+                <img src="images/lecture04/selectors_types.png"/>
+            </section>
 
-                <section>
-                    <h1>Box Model</h1>
-                </section>
+            <section>
+                <h1>Box Model</h1>
+            </section>
 
-                <section>
-                    <h3>Box Model</h3>
-                    <p class="content">All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout. The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
-                    <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
-                </section>
-                
-               <section>
-                    <h3>Box Model</h3>
-                    <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
-                </section>
-                
-                <section>
-                    <h3>Box Model</h3>
-                    <p class="content">To the width and height of our element, the border and margins are added.<br/>Padding is added internally to the box object and so doesn't add to the height and width</p>
-                    <img src="images/lecture05/box_model1.png" style="border:none;" class="stretch"/>
-                </section>
-                
-                <section>
-                    <h3>Box Model - Content</h3>
-                    <p class="content">Height and Width of the contet area are determined by the display attribute, the size of it's content (image/text) and the height and width attributes.</p>
-                    <img src="images/lecture05/box_model_content.png" style="border:none;" class="stretch"/>
-                </section>
-                
-                
-               <section>
-                    <h3>Box Model - Content</h3>
-                   <p class="content">html</p>
-                    <pre><code data-trim  data-noescape class="html">
+            <section>
+                <h3>Box Model</h3>
+                <p class="content">All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout. The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
+                <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
+            </section>
+
+            <section>
+                <h3>Box Model</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="50%">
+                                <ul class="content">
+                                    <li><b>content</b> - The content box where text and images appear</li>
+                                    <li><b>padding</b> - Clears an area around the content. The padding is transparent</li>
+                                    <li><b>border</b> - A border that goes around the padding and content</li>
+                                    <li><b>margin</b> - Clears and area around the border. The padding is transparent</li>
+                                </ul>
+                            </td>
+                            <td><img src="images/lecture05/box_model.png" style="border:none;" class="stretch" width="100%"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </section>
+
+            <section>
+                <h3>Box Model</h3>
+                <p class="content">To the width and height of our element, the border and margins are added.<br/>Padding is added internally to the box object and so doesn't add to the height and width</p>
+                <img src="images/lecture05/box_model1.png" style="border:none;" class="stretch"/>
+            </section>
+
+            <section>
+                <h3>Box Model - Content</h3>
+                <p class="content">Height and Width of the contet area are determined by the display attribute, the size of it's content (image/text) and the height and width attributes.</p>
+                <img src="images/lecture05/box_model_content.png" style="border:none;" class="stretch"/>
+            </section>
+
+
+            <section>
+                <h3>Box Model - Content</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td width="50%">     
+                                <p class="content">html</p>
+                                <pre><code data-trim  data-noescape class="html">
                     &lt;h1&gt;Hello.&lt;h1&gt;
+                    </code></pre></td>
+                            <td style="vertical-align: bottom">
+                                <pre><code data-trim  data-noescape class="html">
                     &lt;h1 id=”sec”&gt;Hello.&lt;h1&gt;
-                    </code></pre>
-                   <p class="content">CSS</p>
-                    <pre><code data-trim  data-noescape class="css">
+                    </code></pre></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="content">CSS</p>
+                                <pre><code data-trim  data-noescape class="css">
                     h1{
                         display: inline-block;
                         font-size: 50px;
                         Background-color: red;
                     }
+
+                    </code></pre>
+                            </td>
+                            <td style="vertical-align: bottom">
+                                <pre><code data-trim  data-noescape class="css">
                     #sec{
                         width: 400px;
                     }
 
-                    </code></pre>
-                   <p class="content">result</p>
-                   <div style="text-align: left;">
-                    <div style="display: inline-block;font-size: 50px;Background-color: red;">
-                        Hello. 
-                    </div>
-                       </div>
-                   <div style="text-align: left;">
-                       <br/>
-                   <div style="display: inline-block;font-size: 50px;Background-color: red;width: 400px;">
-                        Hello. 
-                    </div>
-                       </div>
-                </section>
+                    </code></pre></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="content">result</p>
+                                <div style="text-align: left;">
+                                    <div style="display: inline-block;font-size: 50px;Background-color: red;">
+                                        Hello. 
+                                    </div>
+                                </div>
+                            </td>
 
- 
+                            <td style="vertical-align: bottom">
+                                <div style="text-align: left;">
+                                    <br/>
+                                    <div style="display: inline-block;font-size: 50px;Background-color: red;width: 400px;">
+                                        Hello. 
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+           <section>
+                <h3>Box Model - Padding</h3>
+                <p class="content">Padding is set by the css attribute <code>padding</code>. It creates internal spacing around the content.The padding is transparent and can't have it's own color.</p>
+                <img src="images/lecture05/padding.png" style="border:none;" class="stretch"/>
+            </section>
+            
+            <section>
+                <h3>Box Model - Padding</h3>
+                <pre><code data-trim  data-noescape class="css">
+                   padding: 20px; /* uniform spacing around the element */
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                    padding-top: 5px;
+                    padding-right: 15px;
+                    padding-bottom: 20px;
+                    padding-left: 25px;
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   padding: 5px 15px 20px 25px;  /* Top   Right   Bottom   Left */
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   padding: 5px 20px;  /* Top Bottom    Right Left */
+                </code></pre>
+                
+                
+            </section>
+            
+            <section>
+                <h3>Box Model - Border</h3>
+                <p class="content">A border that goes around the padding and content</p>
+                <img src="images/lecture05/border.png" style="border:none;" class="stretch"/>
+            </section>
+            
+            <section>
+                <h3>Box Model - Border</h3>
+                
+                <pre><code data-trim  data-noescape class="css">
+                    border-style: solid;
+                    border-width: 15px;
+                    border-radius: 25px;
+                    border-color: #00ff00;
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   border: 1px solid #00ff00;  /* Width    style     color  */
+                </code></pre>                
+            </section>
+            
+            <section>
+                <h3>Box Model - Margin</h3>
+                <p class="content">Sets the spaces on the outside of the box, between the element and other elements on the page or the page edges.</p>
+                <img src="images/lecture05/margin.png" style="border:none;" class="stretch"/>
+            </section>
+            
+            <section>
+                <h3>Box Model - Margin</h3>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   margin: 20px; /* uniform spacing around the element */
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                    margin-top: 5px;
+                    margin-right: 15px;
+                    margin-bottom: 20px;
+                    margin-left: 25px;
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   margin: 5px 15px 20px 25px;  /* Top   Right   Bottom   Left */
+                </code></pre>
+                
+                <pre><code data-trim  data-noescape class="css">
+                   margin: 5px 20px;  /* Top Bottom    Right Left */
+                </code></pre>                
+            </section>
+            
+            <section>
+                <h3>CSS- Height and Width</h3>
+                <ul class="content">
+                    <li>The width and height of an element can be set in pixels or percentages</li>
+<li>If they are set in percent, the width and height of the element will be relative to the width and height of the element that contains them in the parent html</li>
+<li>The default size of an element will be auto - it means it will be defined by its content - text amount or image size</li>
+<li>In case an element (tag) has no content (and its children ...) if it has no width settings and its size is 0px / 0px</li>
+
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Box Model - Height and Width</h3>
+                <p class="content"> Various element types behave differently</p>
+                <pre><code data-trim  data-noescape class="css">
+                   div{
+                        width: 400px;
+                        height: 400px;
+                   }
+                </code></pre>
+                <pre><code data-trim  data-noescape class="css">
+                   p{
+                        width: 400px;
+                        height: auto;
+                   }
+                </code></pre>
+                
+               <pre><code data-trim  data-noescape class="css">
+                   img{
+                        width: auto
+                        height: 400px;
+                   }
+                </code></pre>
+            </section>
+            
+            <section>
+                <h3>Box Model - Inspect</h3>
+                <img src="images/lecture05/browser_inspect.png" style="border:none;" class="stretch"/>
+            </section>
+            
+            <section>
+                <h1>Block & Inline Elements</h1>
+            </section>
+            
+            <section>
+                <p>All elements on the page are arranged one by one
+                    As default starting from the top left corner and going to right and down.
+                
+                </p>
+            </section>
 
 
 
-<!--
-                <section>
-                    <h2>Assignment</h2>
-                    <p>Make your page responsive</p>
-                </section>
+
+
+            <!--
+<section>
+<h2>Assignment</h2>
+<p>Make your page responsive</p>
+</section>
 -->
 
-            </div>
         </div>
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-        <script>
-            // More info about config & dependencies:
-            // - https://github.com/hakimel/reveal.js#configuration
-            // - https://github.com/hakimel/reveal.js#dependencies
-            Reveal.initialize({
-                // Push each slide change to the browser history
-                history: true,
-                // Display a presentation progress bar
-                progress: true,
-                dependencies: [
-                    { src: 'plugin/markdown/marked.js' },
-                    { src: 'plugin/markdown/markdown.js' },
-                    { src: 'plugin/notes/notes.js', async: true },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-                ]
-            });
-        </script>
+        </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            // Push each slide change to the browser history
+            history: true,
+            // Display a presentation progress bar
+            progress: true,
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
     </body>
 </html>
