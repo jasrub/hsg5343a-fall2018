@@ -32,6 +32,7 @@
                     <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
                 </section>
 
+<!--
                 <section>
                     <h3>Today's plan - CSS continued</h3>
                     <ul>
@@ -41,6 +42,7 @@
                         <li>Grid Practices</li>
                         <li>Responsive Web Design</li>
                     </ul>
+-->
                     <!--
 
 <h5>next week:</h5>
@@ -113,43 +115,73 @@ responsive web design
                 </section>
 
                 <section>
+                    <h3>Box Model</h3>
+                    <p class="content">All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout. The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
                     <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
+                </section>
+                
+               <section>
+                    <h3>Box Model</h3>
+                    <img src="images/lecture05/box_model.png" style="border:none;" class="stretch"/>
+                </section>
+                
+                <section>
+                    <h3>Box Model</h3>
+                    <p class="content">To the width and height of our element, the border and margins are added.<br/>Padding is added internally to the box object and so doesn't add to the height and width</p>
+                    <img src="images/lecture05/box_model1.png" style="border:none;" class="stretch"/>
+                </section>
+                
+                <section>
+                    <h3>Box Model - Content</h3>
+                    <p class="content">Height and Width of the contet area are determined by the display attribute, the size of it's content (image/text) and the height and width attributes.</p>
+                    <img src="images/lecture05/box_model_content.png" style="border:none;" class="stretch"/>
+                </section>
+                
+                
+               <section>
+                    <h3>Box Model - Content</h3>
+                   <p class="content">html</p>
+                    <pre><code data-trim  data-noescape class="html">
+                    &lt;h1&gt;Hello.&lt;h1&gt;
+                    &lt;h1 id=”sec”&gt;Hello.&lt;h1&gt;
+                    </code></pre>
+                   <p class="content">CSS</p>
+                    <pre><code data-trim  data-noescape class="css">
+                    h1{
+                        display: inline-block;
+                        font-size: 50px;
+                        Background-color: red;
+                    }
+                    #sec{
+                        width: 400px;
+                    }
+
+                    </code></pre>
+                   <p class="content">result</p>
+                   <div style="text-align: left;">
+                    <div style="display: inline-block;font-size: 50px;Background-color: red;">
+                        Hello. 
+                    </div>
+                       </div>
+                   <div style="text-align: left;">
+                       <br/>
+                   <div style="display: inline-block;font-size: 50px;Background-color: red;width: 400px;">
+                        Hello. 
+                    </div>
+                       </div>
                 </section>
 
  
 
 
 
+<!--
                 <section>
                     <h2>Assignment</h2>
-                    <ol class="content">
-                        <li>Add a styles.css file to your html file from 2 weeks ago</li>
-                        <li>Style your page using CSS</li>
-                        <li>Include at least 5 CSS rules and at least 1 id selector, 1 class selector and 1 type selector</li>
-                    </ol>
-                    <hr>
+                    <p>Make your page responsive</p>
                 </section>
+-->
 
-                <section>
-                    <h2>Assignment - EXTRA</h2>
-                    <p><b>Further - Optional - Not Mandatory!!!</b></p>
-                    <ol class="content">
-                        <li>
-                            <ul>
-                                <li>Upload your website folder to Github</li>
-                                <li>(that way we can track changes and also serve it online for free)</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul>
-                                <li>Download the html and css files from <a target="_blank" href="http://www.csszengarden.com/">www.csszengarden.com</a></li>
-                                <li>Duplicate the style.css file and call is style.old.css, keep the file for reference</li>
-                                <li>Try editing the style.css file to reflect your own style</li>
-                                <li>Explore how classes, ids and tags are used across the different designs</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </section>
             </div>
         </div>
         <script src="lib/js/head.min.js"></script>
