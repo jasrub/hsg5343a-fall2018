@@ -33,7 +33,6 @@
                 </section>
 
                 <!--
-<section>
 <h3>Today's plan - CSS continued</h3>
 <ul>
 <li>Box Model</li>
@@ -42,8 +41,18 @@
 <li>Grid Practices</li>
 <li>Responsive Web Design</li>
 </ul>
--->
-                <!--
+
+
+                    <h3>Today's plan - CSS continued</h3>
+                    <ul>
+                        <li>Box Model</li>
+                        <li>Positioning</li>
+                        <li>Layout</li>
+                        <li>Grid Practices</li>
+                        <li>Responsive Web Design</li>
+                    </ul>
+
+
 
 <h5>next week:</h5>
 <ul>
@@ -52,11 +61,7 @@
 <li>Frameworks</li>
 <li>Anything we don't finish today</li>
 </ul>
--->
-                </section>
 
-
-            <!--
 Box Model
 Block and inline elements
 Note about "float"
@@ -332,20 +337,37 @@ responsive web design
                 <h3>Box Model - Inspect</h3>
                 <img src="images/lecture05/browser_inspect.png" style="border:none;" class="stretch"/>
             </section>
-            
-            <section>
-                <h1>Block & Inline Elements</h1>
-            </section>
-            
-            <section>
-                <p>All elements on the page are arranged one by one
-                    As default starting from the top left corner and going to right and down.
                 
-                </p>
+            <section>
+                <h1>Inline and Block Elements</h1>
             </section>
-
-
-
+                
+            <section>
+                <h3> Inline and Block Elements</h3>
+                <ul class="content">
+                    <li>The document flow is from top left to bottom right</li>
+                    <li>Block Element will each start a new row and take the full width available</li>
+                    <li>Example block elements: &lt;div&gt;, &lt;h1&gt; - &lt;h6&gt;, &lt;p&gt;, &lt;article&gt;, &lt;section&gt;, &lt;li&gt;, &lt;ul&gt;</li>
+                    <li>Inline level elements are displayed in the browser side by side</li>
+                    <li>Example inline elements: &lt;a&gt;, &lt;span&gt;, &lt;img&gt;</li>
+                    <li>The css <code>display</code> attribute allows us to change inline to block and vice versa</li>
+                </ul>
+                <pre> 
+                    <code data-trim  data-noescape class="css">
+                        display: block;
+                        display: inline;
+                        display: inline-block;
+                        display: none; /* Hiding the element */
+                    </code>
+                </pre>
+                
+            </section>
+                
+            <section>
+                <h3>Display Settings</h3>
+                <img src="images/lecture05/inline.png" style="border:none;" class="stretch"/>
+            </section>
+            
 
 
             <!--

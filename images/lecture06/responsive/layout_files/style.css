@@ -11,7 +11,11 @@ body{
     font-size: 17px;
     padding-top: 30px;
     margin: 0;
-    background-color: #FF815B;
+    background-color: #403833;
+}
+
+a {
+    color:white;
 }
 
 

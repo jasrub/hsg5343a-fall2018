@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 6: CSS III</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 6 - CSS III</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+                <!--
+reminder
+Note about "float"
+Positioning
+layout
+grid practices
+responsive web design
+Frameworks
+Animations?
+-->
+
+                <section>
+                    <h3>Reminder from last week</h3>
+                </section>
+
+                <section>
+                    <h3>Box Model</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="50%">
+                                    <ul class="content">
+                                        <li><b>content</b> - The content box where text and images appear</li>
+                                        <li><b>padding</b> - Clears an area around the content. The padding is transparent</li>
+                                        <li><b>border</b> - A border that goes around the padding and content</li>
+                                        <li><b>margin</b> - Clears and area around the border. The padding is transparent</li>
+                                    </ul>
+                                </td>
+                                <td><img src="images/lecture05/box_model.png" style="border:none;" class="stretch" width="100%"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h3> Inline and Block Elements</h3>
+                    <ul class="content">
+                        <li>The document flow is from top left to bottom right</li>
+                        <li>Block Element will each start a new row and take the full width available</li>
+                        <li>Example block elements: &lt;div&gt;, &lt;h1&gt; - &lt;h6&gt;, &lt;p&gt;, &lt;article&gt;, &lt;section&gt;, &lt;li&gt;, &lt;ul&gt;</li>
+                        <li>Inline level elements are displayed in the browser side by side</li>
+                        <li>Example inline elements: &lt;a&gt;, &lt;span&gt;, &lt;img&gt;</li>
+                        <li>The css <code>display</code> attribute allows us to change inline to block and vice versa</li>
+                    </ul>
+                    <pre> 
+                    <code data-trim  data-noescape class="css">
+                        display: block;
+                        display: inline;
+                        display: inline-block;
+                        display: none; /* Hiding the element */
+                    </code>
+                </pre>
+
+                </section>
+
+                <section>
+                    <h1>*Note about "float"</h1>
+                    <pre>
+                <code data-trim  data-noescape class="css">
+                    .floaty {
+                        float:left;
+                    }
+                </code>
+                </pre>
+                </section>
+
+                <section>
+                    <h3>*Note about "Float"</h3>
+                    <ul class="content">
+                        <li>options: left, right, none</li>
+                        <li>Removes elements from normal document flow</li>
+                        <li>when possible use "display:inline-block;" instead</li>
+                        <li>Many Caveats:
+                            <ul>
+                                <li><a href="http://wtfhtmlcss.com/#floats-first">wtfhtmlcss.com/#floats-first</a></li>
+                                <li><a href="https://stackoverflow.com/questions/15172520/advantages-of-using-displayinline-block-vs-floatleft-in-css">stackoverflow question</a></li>
+                                <li><a href="https://robertnyman.com/2010/02/24/css-display-inline-block-why-it-rocks-and-why-it-sucks/">robertnyman.com/2010/02/24/css-display-inline-block-why-it-rocks-and-why-it-sucks/</a></li>
+                                <li><a href="https://css-tricks.com/all-about-floats/">css-tricks.com/all-about-floats/</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Positioning</h1>
+                </section>
+
+                <section>
+                    <h3>Positioning</h3>
+                    <div class="content">
+                        The position property specifies the type of positioning method used for an element.
+                        <br/>
+                        There are five different position values:
+                        <br/>
+                        <br/>
+                        <ul>
+                            <li>static</li>
+                            <li>relative</li>
+                            <li>fixed</li>
+                            <li>absolute</li>
+                            <li>sticky</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the position property is set first. They also work differently depending on the position value.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Position</h3>
+
+                    <table class="content">
+                        <tbody>
+                            <tr>
+                                <td>static</td>
+                                <td>Default value. Elements render in order, as they appear in the document flow</td>                    
+                            </tr>
+                            <tr>
+                                <td>absolute</td>
+                                <td>The element is positioned relative to its first positioned (not static) ancestor element</td>                     
+                            </tr>
+                            <tr>
+                                <td>fixed</td>
+                                <td>The element is positioned relative to the browser window</td>                     
+                            </tr>
+                            <tr>
+                                <td>relative</td>
+                                <td>The element is positioned relative to its normal position, so "left:20px"
+                                    adds 20 pixels to the element's LEFT position</td>                           
+                            </tr>
+                            <tr>
+                                <td>sticky</td>
+                                <td>The element is positioned based on the user's scroll position </td>                  
+                            </tr>
+                        </tbody></table>
+                </section>
+                
+                <section>
+                    <h2>Position - Example</h2>
+                    <a href="https://codepen.io/jasrub/pen/rqGMOB">https://codepen.io/jasrub/pen/rqGMOB</a>
+                </section>
+                
+                <section>
+                    <h2>Layers - z-index</h2>
+                    <p>To control the order of layered elements we use the <code>z-index</code> attribute</p>
+                    <img src="images/lecture06/z-index.png" style="border:none;" class="stretch"/>
+                    <a href="https://codepen.io/jasrub/pen/ePGzoo">https://codepen.io/jasrub/pen/ePGzoo</a>
+                </section>
+
+                <section>
+                    <h1>Flexbox</h1>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    display: flex;
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Flexbox</h3>
+                    <p>
+                        The Flexbox Layout module aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
+<br/>
+                        <br/>
+                        The flexbox properties are supported in all modern browsers.
+                    </p>
+                </section>
+                
+                <section>
+                    <h3>Flexbox</h3>
+                    <ul class="content">
+                        <li>The Flexbox model allows us to define the location and order of elements in the HTML and create a grid that way</li>
+                        <li>The flexbox base is a parent element called "flexbox container" and direct children called "flexbox items"</li>
+                        <li>To start working with flexbox add <code>display:flex;</code> to the flex container</li>
+                        <li> When an element has a "<code>display:flax;</code>" css rule, all it's children are automatically flex items</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Flexbox</h3>
+                    <img src="images/lecture06/flexbox.png" style="border:none;" class="stretch"/>
+                    <a href="https://codepen.io/jasrub/pen/xyXBWN?editors=1100">codepen.io/jasrub/pen/xyXBWN</a>
+                </section>
+                
+                <section>
+                    <h3>Flexbox</h3>
+                    <h5>References</h5>
+                    <ul>
+                        <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">css-tricks.com/snippets/css/a-guide-to-flexbox</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">developer.mozilla.org</a></li>
+                    </ul>
+                </section>
+                
+
+                <section>
+                    <h1>Layout</h1>
+                </section>
+                
+                <section>
+                    <h3>Layout</h3>
+                    <ul>
+                        <li><a href="images/lecture06/responsive/layout.html">Layout Example</a></li>
+                        <li><a href="">Layout Code</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Layout</h3>
+                </section>
+                
+                <section>
+                    <h3>Basic Layout</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <pre>
+                                    <code data-trim  data-noescape class="html">
+                                    &lt;section&gt;
+                                        &lt;section class=&quot;wrapper&quot;&gt;
+                                            &lt;article class=&rdquo;row&rdquo;&gt;
+                                                &lt;article class=&rdquo;col&rdquo;&gt;
+                                                    &lt;p&gt;paragraph&lt;/p&gt;
+                                                &lt;/article&gt;
+                                                &lt;article class=&rdquo;col&rdquo;&gt;
+                                                    &lt;p&gt;paragraph&lt;/p&gt;
+                                                &lt;/article&gt;
+                                            &lt;/article&gt;
+                                        &lt;/section&gt;
+                                    &lt;/section&gt;
+
+                                    </code>
+                                    </pre>
+                                </td>
+                                <td>
+                                    <pre>
+                                      <code data-trim  data-noescape class="css">
+                                        section{
+                                            width:100%;
+                                        }
+
+                                        .wrapper{
+                                            max-width:1100px;
+                                            width:100%;
+                                            margin: 0 auto;
+                                        }
+                                        .row{
+                                            width:100%;
+                                            Display: flex;
+                                        }
+                                        .col{
+                                            width:50%;
+                                        }
+                                        </code>
+                                    </pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h1>Responsive Web Design</h1>
+                </section>
+                
+                <section>
+                    <h3> viewport meta tag</h3>
+                    <pre>
+                    <code>
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+                    </code>
+                    </pre>
+                        <ul class="content">
+                            <li>The viewport meta tag is added to the <code>&lt;head&gt;</code> part of the HTML </li>
+                            <li>The browser's viewport is the area of the window in which web content can be seen.</li>
+                        </ul>
+                        
+                </section>
+                
+                <section>
+                    <h3>Media Queries</h3>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    @media (max-width: 1000px) {
+                            h1{
+                                color: red;
+                            }
+                            body{
+                                background-color: blue;
+                            }
+                        }
+                    </code>
+                    </pre>
+                </section>
+                
+
+
+<!--
+                <section>
+                    <h1>Frameworks</h1>
+                </section>
+
+                <section>
+                    <h1>CSS Animations</h1>
+                </section>
+-->
+
+
+
+                <section>
+                    <h3>Assignment</h3>
+                </section>
+
+
+
+                <!--
+<section>
+<h2>Assignment</h2>
+<p>Make your page responsive</p>
+</section>
+-->
+
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
