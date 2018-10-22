@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 7: CSS Transitions, Storytelling and Javascript I</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 7 - CSS Transitions, Storytelling and Javascript I</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+                <!--
+reminder
+Note about "float"
+Positioning
+layout
+grid practices
+responsive web design
+Frameworks
+Animations?
+-->
+
+                <section>
+                    <h1>Transitions and Animations</h1>
+                </section>
+
+                <section>
+                    <h3> Animation Teasers</h3>
+                    <ul class="content">
+                        <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
+                        <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
+                        <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+                    </ul>
+                    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+                </section>
+
+                <section>
+                    <h1>Transitions</h1>
+                </section>
+
+
+
+                <section>
+                    <h3>Transitions</h3>
+                    <p>CSS Transitions allow us to gradually transition an element</p>
+                    <p><b>from one state to another</b></p>
+                </section>
+
+                <section>
+                    <h3>Transition</h3>
+                    <h4>Rules Definition</h4>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                        transition-property: width;
+                        transition-duration: 2s;
+                        transition-timing-function: linear;
+                    </code>
+                    </pre>
+
+                    <p> or:</p>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                        transition:  width  2s  linear; 
+                    </code>
+                    </pre>
+                    <p class="footnote"><a target="_blank" href="https://codepen.io/jasrub/pen/qJyRwr">https://codepen.io/jasrub/pen/qJyRwr</a></p>
+                </section>
+
+                <section>
+                    <h3>Transition</h3>
+                    <p class="content">HTML</p>
+                    <pre>
+                    <code data-trim  data-noescape class="html">
+                        &lt;div class="box"&gt;&lt;/div&gt;
+                    </code>
+                    </pre>
+                    <p class="content">CSS</p>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                        div.box {
+                            transition: width  2s  linear;
+                            width: 100px;
+                            Background-color: red;
+                            Height: 100px;
+                        }
+
+                        /* Transition Trigger */
+                        div.box:hover {
+	                       width: 200px;
+                        }
+                    </code>
+                    </pre> 
+
+                </section>
+
+                <section>
+                    <h3>Transitions</h3>
+                    <h4>Timings</h4>
+
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                        transition-timing-function: linear;
+                        transition-timing-function: ease-in;
+                        transition-timing-function: ease-out;
+                        transition-timing-function: ease-in-out;
+                        transition-timing-function: cubic-bezier(…);
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h1>Animations</h1>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p>CSS Animations allow us to gradually transition an element</p>
+                    <p><b>between multiple states</b></p>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p class="content">CSS Animations are defined in two steps (two separate rules)</p>
+                    <ol>
+                        <li>Define the animation</li>
+                        <li>Set the element to use the animation</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p class="content">Step 1 - Define the animation</p>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    @keyframes slide {
+                        from { 
+                            background: red; 
+                            left: 0; 
+                        }
+                        to { 
+                            background: green; 
+                            left: 100px; 
+                        }
+                    }
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p class="content">Step 2 - Set the element to use the animation</p>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    .box {
+                        position:relative;
+                        height:100px;
+                        /* width:100px; */
+                        define animation
+                        animation-name: slide;
+                        animation-duration: 5s;
+                        animation-iteration-count: 2;
+                    }
+
+                    /* in one line: */
+                    .box {
+	                   animation: slide   5s   2;
+                    }
+
+                    </code>
+                    </pre>
+
+                    <style>
+                        @keyframes slide {
+                            from { 
+                                background: red; 
+                                left: 0; 
+                            }
+                            to { 
+                                background: green; 
+                                left: 100px; 
+                            }
+                        }
+                        .box {
+                            position:relative;
+                            height:100px;
+                            width:100px;
+                            animation-name: slide;
+                            animation-duration: 5s;
+                            animation-iteration-count: 2;
+
+                        }
+                    </style>
+
+                    <p class=box></p>
+                </section>
+
+                <section>
+                    <h3>Animation</h3>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    @keyframes pulse {
+
+                            from {
+                             opacity: 0.0;
+                             font-size: 100%;
+                            }
+
+                            to {
+                             opacity: 1.0;
+                             font-size: 200%;
+                            }
+
+                    }
+                    div {
+                      animation-name: pulse;
+                      animation-duration: 2s;
+                      animation-iteration-count: infinite;
+                      animation-timing-function: ease-in;
+                      animation-direction: alternate;
+                    }
+                    </code>
+                    </pre>
+                    <style>
+                        @keyframes pulse {
+
+                            from {
+                                opacity: 0.0;
+                                font-size: 100%;
+                            }
+
+                            to {
+                                opacity: 1.0;
+                                font-size: 200%;
+                            }
+
+                        }
+                        .pulse {
+                            animation-name: pulse;
+                            animation-duration: 2s;
+                            animation-iteration-count: infinite;
+                            animation-timing-function: ease-in;
+                            animation-direction: alternate;
+                        }
+                    </style>
+                    <p class="pulse">pulse</p>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p class="content">Multiple steps animation</p>
+                    <pre>
+                    <code data-trim  data-noescape class="css">
+                    @keyframes widen {
+                        0% { width: 100px; }
+                        50% { width: 200px; }
+                        100% { width: 100px;}
+                    }
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <pre>
+                    <code   data-trim  data-noescape class="css">
+                    @keyframes rainbow {
+                        0%   {
+                          background-color: red;
+                          width:500px;
+                        }
+                        25%  {
+                          background-color: yellow;
+                          width: 200px;
+                        }
+                        50%  {
+                          background-color: blue;
+                          width: 300px
+                        }
+                        100% {
+                          background-color: green;
+                          width: 200px;
+                        }
+                    }
+
+
+                    div {
+                      animation-name: rainbow;
+                      animation-duration: 6s;
+                      animation-iteration-count: infinite;
+                      animation-timing-function: ease-in;
+                      animation-direction: alternate;
+                    }
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Animations</h3>
+                    <p class="content">Animations parameters (set on the element CSS rule)</p>
+                    <table class="content">
+                        <tbody>
+                            <tr>
+                                <td>animation-direction</td>
+                                <td>Start playing from the first frame or last frame</td>                    
+                            </tr>
+                            <tr>
+                                <td>animation-play-state</td>
+                                <td>whether the animation is running or paused</td>                     
+                            </tr>
+                            <tr>
+                                <td>animation-fill-mode</td>
+                                <td>specifies a style for the element when the animation is not playing (before it starts, after it ends, or both)</td>                     
+                            </tr>
+                            <tr>
+                                <td>animation-delay</td>
+                                <td>delay for the start of an animation</td>                           
+                            </tr>
+                        </tbody></table>
+                </section>
+
+                <section>
+                    <h3>Transforms</h3>
+                    <style>
+                        #transform-example {
+                            margin: 50px 20px;
+                            transform: rotateZ(5deg);
+                            -moz-transition: -moz-transform 2s ease-in-out;
+                            -o-transition: -o-transform 2s ease-in-out;
+                            transition: transform 2s ease-in-out;
+                        }
+
+                        #transform-example:hover {
+                            transform: rotateZ(-5deg);
+                        }
+                    </style>
+                    <pre id="transform-example">
+                          You can transform this div by hovering over it!
+                    </pre>
+
+                    <pre>
+                        <code data-trim  data-noescape class="css">
+                        #transform-example {
+                          transform: rotateZ(5deg);
+                          transition: transform 2s ease-in-out;
+                        }
+
+                        #transform-example:hover {
+                          transform: rotateZ(-5deg);
+                        }
+                        </code>
+                        </pre>
+                </section>
+
+                <section>
+                    <h3>Transforms</h3>
+                    <div class="content">
+                        <p>Other Transform Values</p>
+                        <ul>
+                            <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
+                            <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
+                            <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
+                            <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
+                            <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
+                        </ul>
+                        <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
+                            caniuse.com: transforms
+                        </a>
+                    </div>
+                </section>
+
+
+
+                <section>
+                    <h1>CSS Frameworks</h1>
+                </section>
+
+                <section>
+                    <h3>CSS Frameworks</h3>
+                    <ul>
+                        <li>Make it easier to work in groups</li>
+                        <li>Allow for component-based design</li>
+                        <li>Remove roadblocks to common tasks</li>
+                    </ul>
+                    <a target="_blank" href="https://www.awwwards.com/what-are-frameworks-22-best-responsive-css-frameworks-for-web-design.html">https://www.awwwards.com/what-are-frameworks-22-best-responsive-css-frameworks-for-web-design.html</a>
+                </section>
+
+                <section>
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>Reset styles</li>
+                        <li>Make styles consistent across browsers</li>
+                        <li>Baseline for elements</li>
+                        <li>Styling of forms, tables and other UI elements</li>
+                        <li>Grid system</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Frameworks</h3>
+                    <p>There are dozens of frameworks out there, large and small, and you can also always create your own framework.<br/> 
+                        The following 2 are the main ones in use today, and are a great starting point:</p>
+                    <ul>
+                        <li>Bootstrap <a target="_blank" href="http://getbootstrap.com/">getbootstrap.com</a></li>
+                        <li>Foundation <a target="_blank" href="https://foundation.zurb.com/">foundation.zurb.com/</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Structure with Bootstrap</h3>
+                    <p>Containers are used to control the overall layout of your content and to add some padding</p>
+                    <pre>
+                    <code  data-trim  data-noescape class="html">
+                        &lt;div class=&quot;container&quot;&gt;
+                            &lt;!-- Content here --&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Fluid Container --&gt;
+                        &lt;div class=&quot;container-fluid&quot;&gt;
+                          ...
+                        &lt;/div&gt;
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Bootstrap Elements</h3>
+                    <ul>
+                        <li>Rows and Columns</li>
+                        <li>Grid</li>
+                        <li>Navigation:
+                            <ul>
+                                <li>Tabs</li>
+                                <li>Pills</li>
+                                <li>Justified</li>
+                                <li>Navbar</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Bootstrap exercise -  Part 1</h4>
+                    <div class="content">
+                        <p>Download the <a href='/images/lecture07/bootstrap_starter.html'>starter code</a> by right clicking and saving the file to your computer. Save the file as <strong><code>index.html</code></strong></p>
+                        <br/>
+                        <h5>Add navigation</h5>
+                        <ul>
+                            <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/navbar/">navbar</a> component to create a navigation header for your website. You can experiment with different positioning and layout, whatever strikes your fancy.</li>
+                            <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/navs/">nav</a> component to add a footer with social media links to your email, LinkedIn profile, GitHub profile, or more.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h4>Bootstrap exercise -  Part 2</h4>
+                    <div class="content">
+
+                        <h5>Make a splash with the jumbotron</h5>
+                        <ul>
+                            <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/jumbotron/">jumbotron component</a> to create an attention grabbing introductory section to your homepage.</li>
+                            <p>In the jumbotron include a</p>
+                            <ul>
+                                <li>headline</li>
+                                <li>paragraph(s)</li>
+                                <li>button</li>
+                            </ul>
+                            <li>Don't forget to swap the starter code content with your own personal touch ;)</li>
+                            <li>Bonus: Set a large background "hero" image</li>
+                        </ul>
+
+                        <h5>Bonus: </h5>
+                        <ul>
+                            <li>Keep practicing using Bootstrap components, add other components like buttons, experiment with other navs or typography classes (e.g. blockquote).</li>
+                            <li>Override the Bootstrap base CSS styles with your own colors, font choices, etc!</li>
+                            <li>As a stretch goal, add a carousel.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>Storytelling</h1>
+                </section>
+
+                <section>
+                    <h3>Storytelling</h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KxDwieKpawg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+                    <a class="content" target="_blank" href="https://www.youtube.com/watch?v=KxDwieKpawg">https://www.youtube.com/watch?v=KxDwieKpawg</a>
+                </section>
+
+                <section>
+                    <h2>What makes a good story?</h2>
+                </section>
+
+                <section>
+                    <p style="text-align: left">
+                        Structure & Patterns
+                        <br/>
+                        Spine
+                        <br/>
+                        Change
+                        <br/>
+                        Anticipation
+                        <br/>
+                        Strong underlying theme
+                        <br/>
+                        Wonder
+                    </p>
+                </section>
+
+                <section>
+                    <h1 style="color:white">
+                        Make me care.
+                    </h1>
+                </section>
+
+                <section>
+                    <h1>Final Project</h1>
+                </section>
+
+                <section>
+                    <h3>Final Project</h3>
+                    <div class="content">
+                        <p>Choose a cause, campaign or a news story - design and build a web based experience that will tell that story.</p>
+                        <br/>
+                        <p>Web offers rich media tools (text, images, video, audio and more), you'll have to choose wisely what tools to use in order to serve the content and narrative you want to tell.</p>
+                        <br/>
+                        <p>The final project will be built with HTML, CSS and Javascript, and we will upload it and serve it with Github to make it accessible online.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Final Project</h3>
+                    <p>Steps</p>
+                    <ol>
+                        <li>Choose a story / cause</li>
+                        <li>Design concept and website structure</li>
+                        <li>structure / navigation / flow</li>
+                        <li>interactions</li>
+                        <li>Build using html, css and javascript</li>
+                        <li>Mid project review</li>
+                        <li>Web apps lab</li>
+                        <li>Final Projects presentations</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>Final Project</h3>
+                    <h5><a target="_blank" href="final_project_references.html">References</a></h5>
+                </section>
+
+
+
+                <section>
+                    <h3>Assignment</h3>
+                    <ol>
+                        <li>Make a jumping ball animation in CSS</li>
+                        <br/>
+                        <p><b>For Final Project:</b></p>
+                        <li>Choose a cause / story</li>
+                        <li>Start a Mood board: Collect references for design, structure and behavior</li>
+                    </ol>
+                </section>
+
+
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
