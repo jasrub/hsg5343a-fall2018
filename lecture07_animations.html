@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>Web Programming I: Lecture 7: CSS Transitions, Storytelling and Javascript I</title>
+        <title>Web Programming I: Lecture 7: CSS Transitions and Storytelling</title>
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/jasmin.css">
 
@@ -25,7 +25,7 @@
                     <h4>SVA HSG5343a Fall 2018</h4>
                     <h1>Web Programming I</h1>
 
-                    <div class="lecture-title">Lecture 7 - CSS Transitions, Storytelling and Javascript I</div>
+                    <div class="lecture-title">Lecture 7 - CSS Transitions and Storytelling</div>
 
                     <br/>
                     <p>Jasmin Rubinovitz</p>
@@ -131,6 +131,57 @@ Animations?
                     </code>
                     </pre>
                 </section>
+                
+                                <section>
+                    <h3>Transforms</h3>
+                    <style>
+                        #transform-example {
+                            margin: 50px 20px;
+                            transform: rotateZ(5deg);
+                            -moz-transition: -moz-transform 2s ease-in-out;
+                            -o-transition: -o-transform 2s ease-in-out;
+                            transition: transform 2s ease-in-out;
+                        }
+
+                        #transform-example:hover {
+                            transform: rotateZ(-5deg);
+                        }
+                    </style>
+                    <pre id="transform-example">
+                          You can transform this div by hovering over it!
+                    </pre>
+
+                    <pre>
+                        <code data-trim  data-noescape class="css">
+                        #transform-example {
+                          transform: rotateZ(5deg);
+                          transition: transform 2s ease-in-out;
+                        }
+
+                        #transform-example:hover {
+                          transform: rotateZ(-5deg);
+                        }
+                        </code>
+                        </pre>
+                </section>
+
+                <section>
+                    <h3>Transforms</h3>
+                    <div class="content">
+                        <p>Other Transform Values</p>
+                        <ul>
+                            <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
+                            <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
+                            <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
+                            <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
+                            <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
+                        </ul>
+                        <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
+                            caniuse.com: transforms
+                        </a>
+                    </div>
+                </section>
 
                 <section>
                     <h1>Animations</h1>
@@ -178,8 +229,8 @@ Animations?
                     .box {
                         position:relative;
                         height:100px;
-                        /* width:100px; */
-                        define animation
+                        width:100px;
+                        /* define animation */
                         animation-name: slide;
                         animation-duration: 5s;
                         animation-iteration-count: 2;
@@ -284,6 +335,7 @@ Animations?
                 </section>
 
                 <section>
+                    <h3>Multiple steps animation</h3>
                     <pre>
                     <code   data-trim  data-noescape class="css">
                     @keyframes rainbow {
@@ -306,7 +358,7 @@ Animations?
                     }
 
 
-                    div {
+                    .rainbow {
                       animation-name: rainbow;
                       animation-duration: 6s;
                       animation-iteration-count: infinite;
@@ -315,6 +367,38 @@ Animations?
                     }
                     </code>
                     </pre>
+                    <style>
+                                            @keyframes rainbow {
+                        0%   {
+                          background-color: red;
+                          width:500px;
+                        }
+                        25%  {
+                          background-color: yellow;
+                          width: 200px;
+                        }
+                        50%  {
+                          background-color: blue;
+                          width: 300px
+                        }
+                        100% {
+                          background-color: green;
+                          width: 200px;
+                        }
+                    }
+
+
+                    .rainbow {
+                        display: relative;
+                        height:50px;
+                      animation-name: rainbow;
+                      animation-duration: 6s;
+                      animation-iteration-count: infinite;
+                      animation-timing-function: ease-in;
+                      animation-direction: alternate;
+                    }
+                    </style>
+                    <div class="rainbow">rainbow</div>
                 </section>
 
                 <section>
@@ -340,58 +424,6 @@ Animations?
                             </tr>
                         </tbody></table>
                 </section>
-
-                <section>
-                    <h3>Transforms</h3>
-                    <style>
-                        #transform-example {
-                            margin: 50px 20px;
-                            transform: rotateZ(5deg);
-                            -moz-transition: -moz-transform 2s ease-in-out;
-                            -o-transition: -o-transform 2s ease-in-out;
-                            transition: transform 2s ease-in-out;
-                        }
-
-                        #transform-example:hover {
-                            transform: rotateZ(-5deg);
-                        }
-                    </style>
-                    <pre id="transform-example">
-                          You can transform this div by hovering over it!
-                    </pre>
-
-                    <pre>
-                        <code data-trim  data-noescape class="css">
-                        #transform-example {
-                          transform: rotateZ(5deg);
-                          transition: transform 2s ease-in-out;
-                        }
-
-                        #transform-example:hover {
-                          transform: rotateZ(-5deg);
-                        }
-                        </code>
-                        </pre>
-                </section>
-
-                <section>
-                    <h3>Transforms</h3>
-                    <div class="content">
-                        <p>Other Transform Values</p>
-                        <ul>
-                            <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
-                            <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
-                            <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
-                            <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
-                            <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
-                        </ul>
-                        <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
-                            caniuse.com: transforms
-                        </a>
-                    </div>
-                </section>
-
 
 
                 <section>
