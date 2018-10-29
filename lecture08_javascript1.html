@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 8: Javascript I</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 8 - Javascript I</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+
+                <section>
+                    <h1>Javascript</h1>
+                </section>
+                
+                <section>
+                    <h3>Reminder</h3>
+                    <br/>
+                    <br/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HTML</th>
+                                <th>CSS</th>
+                                <th style="color:hotpink">Javascript</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Structure</td>
+                                <td>Look</td>
+                                <td style="color:hotpink">Behavior</td>
+                                <td>Content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section>
+                    <h3>Programming Fundamentals</h3>
+                    <h5>What is Code?</h5>
+                    <p>Code is for humans first and computers second.</p>
+                </section>
+                
+                <section>
+                    <h3>Programming Fundamentals</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let monthlyRent = 500;
+
+                    let yearlyRent = monthlyRent * 12;
+                    console.log(yearlyRent);
+                    </code>
+                    </pre>
+                    
+                    <p class="footnote">The computer executes the code line by line
+                        <br/>
+                        <a class="footnote" target="_blank" href="https://codepen.io/jasrub/pen/JmzWPa?editors=0011">https://codepen.io/jasrub/pen/JmzWPa?editors=0011</a>
+                    </p>
+                </section>
+                
+                <section>
+                    <h3> Variables</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let monthlyRent = 500;
+
+                    let yearlyRent = monthlyRent * 12;
+                    console.log(yearlyRent);
+                    </code>
+                    </pre>
+                    <ul class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables">Variables</a> are containers that you can store values in.</li>
+                        <li>You start by declaring a variable with the <code>const</code>, <code>let</code> or <code>var</code> keywords, followed by any name you want to call it</li>
+                        <li>We first declare a variable called <code>monthlyRent</code></li>
+                        <li><code>let</code> is a keyword that let's javascript know we are declaring a variable</li>
+                        <li> We use <code>const</code> to declare variables that can't change</li>
+                        <li>Variable names cannot have spaces in them</li>
+                        <li>Variable can be called <i><a href="https://mothereff.in/js-variables">almost</a></i> anything. We can't use keywords</li>
+                        <li>We use <a href="https://en.wikipedia.org/wiki/Camel_case">CamelCase</a> for compound words</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Variables Naming Rules</h3>
+                    <ul class=content>
+                    <li>Generally, stick to just using Latin characters (0-9, a-z, A-Z) and the underscore character.</li>
+                     <li>You shouldn't use other characters because they may cause errors or be hard to understand for an international audience.</li>
+                     <li>Don't use underscores at the start of variable names.</li>
+                     <li>Don't use numbers at the start of variables. This isn't allowed and will cause an error.</li>
+                     <li>Make variable names intuitive, so they describe the data they contain. Don't just use single letters/numbers, or big long phrases.</li>
+                     <li>Variables are case sensitive — so <code>myage</code> is a different variable to <code>myAge</code>.</li>
+                     <li>Avoid using JavaScript reserved words as your variable names. So we can't use words like <code>var</code>, <code>function</code>, <code>let</code>, and <code>for</code> as variable names. Browsers will recognize them as different code items, and so you'll get errors.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Programming Fundamentals</h3>
+                    <p class="content">Let's run it in our browser. Create a new folder and add a index.html file in it with the following content.</p>
+                    <pre>
+                    <code data-trim no-space class="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang=&quot;en&quot;&gt;
+                    &lt;head&gt;
+                      &lt;title&gt;JavaScript Experiments&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                      &lt;h1&gt;JavaScript Experiments!&lt;/h1&gt;
+                      &lt;script src=&quot;./experiments.js&quot;&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code>
+                    </pre>
+                    <p class="content">We import the javascript file using the <code>&lt;script&gt;</code> tag that is telling the browser to load JavaScript code into our HTML page (like the <code>&lt;link&gt;</code> tag we use for CSS)</p>
+                </section>
+                
+                <section>
+                    <h3>Programming Fundamentals</h3>
+                    <p class="content">Make another file in the same folder called experiments.js. In the that JS file put our code from the previous slide</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let monthlyRent = 500;
+
+                    let yearlyRent = monthlyRent * 12;
+                    console.log(yearlyRent);
+                    </code>
+                    </pre>
+                    <p class="content"><a href="https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers" target="_blank">Open</a> the developer tools and look at the "console" tab</p>
+                </section>
+                
+                
+                <section>
+                    <h1>Types</h1>
+                    <h3>[Numbers, Strings and Booleans]</h3>
+                </section>
+                
+                <section>
+                    <h3>Strings</h3>
+                    <p>We refer to words and characters as "Strings" in Javascript.<br/>
+                        A JavaScript string stores a series of characters like "John Doe".</p>
+                    
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const myName = "Jasmin Rubinovitz";
+                    console.log(myName);
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Strings</h3>
+                      <ul class="content">
+                        <li>Strings can be declared between a pair of ' (single quotes) " (double quotes) ` (back ticks)</li>
+                        <li>You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+                            <pre>
+                            <code data-trim no-space class="javascript">
+                            const answerA = "It's alright";
+                            const answerB = "He is called 'Johnny'";
+                            const answerC = 'He is called "Johnny"';
+                            </code>
+                            </pre>
+                        </li>
+                        <li>We can connect strings through concatenation</li>
+                    </ul>
+
+                </section>
+                
+                <section>
+                    <h3>Strings</h3>
+                    <h4>Concatenation</h4>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const firstName = "Jasmin";
+                    const lastName = "Rubinovitz";
+
+                    const sentence = "Hello " + firstName + " " + lastName + "! How are you!?";
+                    const sentenceWithTemplate = `Hello ${firstName} ${lastName}! How are you!?`;
+
+                    console.log(sentence);
+                    console.log(sentenceWithTemplate);
+                    </code>
+                    </pre>
+                    
+                    <a class="footnote" target="_blank" href="https://codepen.io/jasrub/pen/PyLjBr?editors=0011">https://codepen.io/jasrub/pen/PyLjBr?editors=0011</a>
+                </section>
+                
+                <section>
+                    <h3>Booleans</h3>
+                    <p>A JavaScript Boolean represents one of two values: <strong>true</strong> or <strong>false</strong>.</p>
+                    <br/>
+                    <div class=content>Booleans are useful for representing something that can only have one of two values for example:
+                        <br/>
+                    <ul>
+                        <li>YES / NO</li>
+                        <li>ON / OFF</li>
+                        <li>TRUE / FALSE</li>
+                    </ul>
+                    </div>
+                    <pre>
+                    <code data-trim no-space>
+                    const lightIsOn = true;
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Numbers</h3>
+                    <ul class="content">
+                        <li>JavaScript has only one type of number. Numbers can be written with or without decimals.
+                        </li>
+                        
+                        <li>Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc.</li>
+                    </ul>
+                                                <pre>
+                            <code data-trim no-space class="javascript">
+                            const monthlyRent = 500;
+                            const x = 3.14;    // A number with decimals
+                            const y = 3;       // A number without decimals
+                            </code>
+                            </pre>
+                </section>
+                
+               <section>
+                    <h3>Arithmetic Operators</h3>
+                    <table class="content">
+                        <tbody>
+                          <tr>
+                           <td>Addition (+)</td>
+                           <td>The addition operator produces the sum of numeric operands or string concatenation.</td>
+                           <td width="30%"><code>x + y<br>
+                            1 + 2</code></td>
+                          </tr>
+                          <tr>
+                           <td>Subtraction (-)</td>
+                           <td>The subtraction operator subtracts the two operands, producing their difference.</td>
+                           <td><code>x - y<br>
+                            5 - 3</code></td>
+                          </tr>
+                          <tr>
+                           <td>Division (/)</td>
+                           <td>The division operator produces the quotient of its operands where the left operand is the dividend and the right operand is the divisor.</td>
+                           <td><code>x / y<br>
+                            1 / 2</code></td>
+                          </tr>
+                          <tr>
+                           <td>Multiplication (*)</td>
+                           <td>The multiplication operator produces the product of the operands.</td>
+                           <td><code>x * y<br>
+                            2 * 2</code></td>
+                          </tr>
+                         </tbody>
+                    </table>
+                   <a class="footnote" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators</a>
+                </section>
+                
+                <section>
+                    <h1>Control Flow</h1>
+                    <h3>(if statements)</h3>
+                </section>
+                
+                <section>
+                    <h3>Control Flow</h3>
+                    <p>Conditional statements are used to perform different actions based on different conditions.</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const skyIsBlue = true;
+
+                    if (skyIsBlue) {
+                      console.log("The sky is blue!");
+                    } else {
+                      console.log("The sky is … not blue?");
+                    }
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>If Statements</h3>
+                    <ul class="content">
+                      <li>Use<b> if </b>to specify a block of code to be executed, if a specified condition is true</li>
+                      <li>Use <b>else</b> to specify a block of code to be executed, if the same condition is 
+                      false</li>
+                      <li>Use <b>else if</b> to specify a new condition to test, if the first condition is false</li>
+                    </ul>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                       const friendsAtYourParty = 10;
+
+                        if (friendsAtYourParty === 0) {
+                          console.log("Cool, now I have a lot of nachos to myself.");
+                        } else if (friendsAtYourParty &lt;= 4) {
+                          console.log("Perfect amount to play some Mario Kart.");
+                        } else {
+                          console.log("Wooooo turn on the dance music!");
+                        }
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Expressions and Operators</h3>
+                    <table class="content">
+                        <tbody>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality">Equal</a> (<code>==</code>)</td>
+                           <td>Returns <code>true</code> if the operands are equal.</td>
+                           <td width="30%"><code>3 == var1</code>
+                            <p><code>"3" == var1</code></p>
+                            <code>3 == '3'</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Inequality">Not equal</a> (<code>!=</code>)</td>
+                           <td>Returns <code>true</code> if the operands are not equal.</td>
+                           <td><code>var1 != 4<br>
+                            var2 != "3"</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Identity">Strict equal</a> (<code>===</code>)</td>
+                           <td>Returns <code>true</code> if the operands are equal and of the same type.</td>
+                           <td><code>3 === var1</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Nonidentity">Strict not equal</a> (<code>!==</code>)</td>
+                           <td>Returns <code>true</code> if the operands are of the same type but not equal, or are of different type.</td>
+                           <td><code>var1 !== "3"<br>
+                            3 !== '3'</code></td>
+                          </tr>
+                         </tbody>
+                    </table>
+                    <p class="footnote">* To avoid unexpected behavior and hard to track bugs always prefer === and !==</p>
+                </section>
+            
+                
+               <section>
+                    <h3>Expressions and Operators</h3>
+                    <table class="content">
+                        <tbody>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Greater_than_operator">Greater than</a> (<code>&gt;</code>)</td>
+                           <td>Returns <code>true</code> if the left operand is greater than the right operand.</td>
+                           <td width="30%"><code>var2 &gt; var1<br>
+                            12 &gt; 2</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Greater_than_or_equal_operator">Greater than or equal</a> (<code>&gt;=</code>)</td>
+                           <td>Returns <code>true</code> if the left operand is greater than or equal to the right operand.</td>
+                           <td><code>var2 &gt;= var1<br>
+                            var1 &gt;= 3</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Less_than_operator">Less than</a> (<code>&lt;</code>)</td>
+                           <td>Returns <code>true</code> if the left operand is less than the right operand.</td>
+                           <td><code>var1 &lt; var2<br>
+                            2 &lt; 12</code></td>
+                          </tr>
+                          <tr>
+                           <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Less_than_or_equal_operator">Less than or equal</a> (<code>&lt;=</code>)</td>
+                           <td>Returns <code>true</code> if the left operand is less than or equal to the right operand.</td>
+                           <td><code>var1 &lt;= var2<br>
+                            var2 &lt;= 5</code></td>
+                          </tr>
+                         </tbody>
+                    </table>
+                </section>
+                
+                <section>
+                    <h1>Loops</h1>
+                </section>
+                
+                <section>
+                    <h3>Loops</h3>
+                    <p>Loops offer a quick and easy way to do something repeatedly.</p>
+                    
+                    <p>Adding multiple times without a loop:</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let friendsAtYourParty = 0;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    console.log(friendsAtYourParty);
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>While Loop</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                        let friendsAtYourParty = 0;
+                        while (friendsAtYourParty &lt; 10) {
+                          friendsAtYourParty = friendsAtYourParty + 1;
+                        }
+                        console.log(friendsAtYourParty);
+                    </code>
+                    </pre>
+                    
+                    <p class="content">The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. </p>
+
+                </section>
+                
+                <section>
+                    <h3>Side note - shortcuts for adding 1 to variables</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    friendsAtYourParty = friendsAtYourParty + 1;
+                    friendsAtYourParty += 1;
+                    friendsAtYourParty++;
+                    ++friendsAtYourParty;
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>For Loop</h3>
+                                        <pre>
+                    <code data-trim no-space class="javascript">
+                        let friendsAtYourParty = 0;
+                        for (let i = 0; i &lt;= 10; i++) {
+                          friendsAtYourParty++;
+                        }
+                        console.log(friendsAtYourParty);
+                    </code>
+                    </pre>
+                    
+                    <p class="content">The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop. <br/></p>
+                        <pre>
+                        <code data-trim no-space>
+                        for ([initialExpression]; [condition]; [incrementExpression])
+                        </code>
+                        </pre>
+                    <p class="content">The for loop repeats until the condition evaluates to false</p>
+                </section>
+                
+                <section>
+                    <h3>For Loop</h3>
+                    <div class="content">
+                    <pre>
+                        <code data-trim no-space>
+                        for ([initialExpression]; [condition]; [incrementExpression]) {
+                            statement
+                        }
+                        </code>
+                    </pre>
+                    </div>
+                    <div class="content">
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                        for (let i = 0; i &lt;= 10; i++) {
+                          friendsAtYourParty++;
+                          console.log("there are " + friendsAtYourParty + " friends at your party")
+                        }
+                    </code>
+                    </pre></div>
+                    <ol class="content">
+                        <li>The initializing expression <code>initialExpression</code> is executed. This expression usually initializes one or more loop counters.</li>
+                        <li>The <code>condition</code> expression is evaluated. If the value of <code>condition</code> is true, the loop statements execute. If the value of <code>condition</code> is false, the <code>for</code> loop terminates. </li>
+                        <li>The <code>statement</code> executes. To execute multiple statements, we use a block statement (<code>{ ... }</code>) to group those statements.</li>
+                        <li>If present, the update expression <code>incrementExpression</code>&nbsp;is executed.</li>
+                        <li>Control returns to step 2.</li>
+                    </ol>
+                </section>
+                
+                <section>
+                    <h3>Infinite Loops (Oh Snap!)</h3>
+                    
+                    <p class="content">Sometimes, if we mess up what's inside the control condition for the loop, we'll get a runaway loop that'll never complete. This is called an <b>infinite loop</b> and it'll lock up and crash our code and browser. Something like this:</p>
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                        //Warning!! Will crash the browser if you try to run this!
+                        let friendsAtYourParty = 1;
+                        while (friendsAtYourParty > 0) {
+                          friendsAtYourParty = friendsAtYourParty + 1;
+                        }
+                        console.log(friendsAtYourParty);
+                        </code>
+                        </pre>
+                    <p class="content">
+                        Since we're adding one to friendsAtYourParty each time, and the loop will continue each time until it's less than zero, that condition will never happen. Thus it'll continue going until it crashes our code. Be careful of these.
+                    </p>
+                </section>
+                
+                <section>
+                    <h3>Exercise</h3>
+                    <p class="content">
+                          Write some code that declares two variables, character and timesToRepeact.
+                          Using a loop, repeat that character that many times and then console.log it.
+                          Example, if I had character = 'f' and timesToRepeat = 10, it'd console.log
+                          'ffffffffff'
+                        
+                        <br/>
+                        <a href="https://codepen.io/jasrub/pen/BqEemd?editors=0012">https://codepen.io/jasrub/pen/BqEemd?editors=0012</a>
+                    </p>
+                </section>
+                
+                <section>
+                    <h1>Functions and Scopes</h1>
+                </section>
+                
+                <section>
+                    <h3>Functions</h3>
+                    <p class="content">Functions let us define the code once, and use it many times.</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    function addTwo(number) {
+                      return number + 2;
+                    }
+
+                    const finalAnswer = addTwo(5);
+                    console.log(finalAnswer);
+                    </code>
+                    </pre>
+                    <p class="content">
+                        A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().<br/>
+                        Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). <br/>
+                        The parentheses may include parameter names separated by commas:(parameter1, parameter2, ...) <br/>
+                        The code to be executed, by the function, is placed inside curly brackets: {}
+                    </p>
+                </section>
+                
+                <section>
+                    <h3>Functions</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    function toCelsius(fahrenheit) {
+                        return (5/9) * (fahrenheit-32);
+                    }
+                    console.log(toCelsius(86))
+                    let x = toCelsius(77);
+                    let text = "The temperature is " + x + " Celsius";
+                    let sameText = "The temperature is " + toCelsius(77) + " Celsius";
+                    </code>
+                    </pre>
+                    <p class="content">
+                       When JavaScript reaches a <b>return</b> statement, the function will stop executing. <br/>
+                        Functions often compute a return value. The return value is "returned" back to the "caller" <br/>
+                    </p>
+                </section>
+                
+                <section>
+                    <h3>Functions</h3>
+                    <p class="content">
+                        The way call a function is you add parenthesis () to the end of it, like this: someFunctionName(). If you see parenthesis after a variable name, you instantly know that that's a function. Inside of the parenthesis go the parameters. These variables will be passed to the function that is being called in the order that you put them there. Example:
+                    </p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const myHomeCity = "Brooklyn";
+                    const myHomeState = "New York";
+                    const myHomeCountry = "USA";
+
+                    function logOutYourHome(city, state, country) {
+                      console.log(`You are from ${city}, ${state} ${country}.`);
+                    }
+
+                    logOutYourHome(myHomeCity, myHomeState, myHomeCountry);
+                    logOutYourHome("Torino", "Pimonte", "Italy"); // also works
+                    </code>
+                    </pre>
+              </section>
+                
+                <section>
+                    <h1>Scope</h1>
+                </section>
+                
+                <section>
+                    <h3>Scope</h3>
+                    <p>Scope determines the accessibility (visibility) of variables.</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    function addFive(number) {
+                        const someVariable = "you can't see me outside this function";
+                        return number + 5;
+                        console.log(someVariable)
+                    }
+
+                    addFive(10);
+                    console.log(someVariable); // Causes error
+                    </code>
+                    </pre>
+                    <p class="content">This is not going to work. <code class="language-text">someVariable</code> is inside of the <code class="language-text">addFive</code> scope and once <code class="language-text">addFive</code> completes, it throws <code class="language-text">someVariable</code> away since it's now out-of-scope.</p>
+                </section>
+                
+                <section>
+                    <h3>Scope</h3>
+                    <h4>The lifetime of a JavaScript variable</h4>
+                    <div class="content">
+                        <ul>
+                        <li>The lifetime of a JavaScript variable starts when it is declared.</li>
+                        <li>Local variables are deleted when the function is completed.</li>
+                        <li>In a web browser, global variables are deleted when you close the browser window (or tab), but remain available to new pages loaded into the same window.</li>
+                            </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Scope Exercise</h3>
+                    <p>Download the file <a href="./images/lecture08/scopeEx.js" target="_blank">scopeRx.js</a><br/>
+                        Open it in a text editor and try to guess which console.log lines will work and which will not. 
+                    </p>
+                </section>
+                
+                <section>
+                    <h1>Builtins</h1>
+                </section>
+                
+                <section>
+                    <h3>Builtins</h3>
+                    <p>Lots of functions already exist for us! Smart people have created this commonly-used functions for things we often need. For example, if we have a string and we want to make everything lowercase, we can do this:</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const sentence = "ThIs HaS wEiRd CaSiNg On It";
+                    console.log(sentence.toLowerCase());
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Builtins</h3>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    console.log(Math.round(5.1));
+
+                    const name = "Jasmin Rubinovitz";
+                    console.log(name.substr(6, 3));
+                    </code>
+                    </pre>
+                    <p class="content">We can call Math.round(5.1) and it'll return that number rounded (in this case, 5). We can use string.substr(indexToStart, howManyCharactersToInclude) to return part of a string. </p>
+                    <p class="content"> We'll introduce them as we go but know there are a <i>lot</i> of them. You'll learn by doing.</p>
+                    <p class="content">We can use the browser console to check what builtins exists for a variable</p>
+                    <br/>
+                    <p class="content">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2">String methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#Methods">Number methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods">Math Methods</a>
+                    </p>
+                </section>
+
+
+                <section>
+                    <h3>Final Project -Reminder</h3>
+                    <p>Steps</p>
+                    <ol>
+                        <li style="color:#ff7fff85">Choose a story / cause</li>
+                        <li style="color: #ff7fff">Design concept and website structure</li>
+                        <li>structure / navigation / flow</li>
+                        <li>interactions</li>
+                        <li>Build using html, css and javascript</li>
+                        <li>Mid project review</li>
+                        <li>Web apps lab</li>
+                        <li>Final Projects presentations</li>
+                    </ol>
+                </section>
+                
+                <section>
+                    <h3>Assignment</h3>
+                    <div class=content>
+                    <p>Start working on your design concept and the website structure.</p>
+                    <p>Define what content you would like to include and what media items you would need (also start collecting those).</p>
+                    <p>Where does you story start for the user? What are the important pieces to tell?</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
