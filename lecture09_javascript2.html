@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 9: Javascript II</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 9 - Javascript II</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+                
+                <section>
+                    <h1>Javascript</h1>
+                </section>
+                
+                <section>
+                    <h3>Reminder</h3>
+                    <br/>
+                    <br/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HTML</th>
+                                <th>CSS</th>
+                                <th style="color:hotpink">Javascript</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Structure</td>
+                                <td>Look</td>
+                                <td style="color:hotpink">Behavior</td>
+                                <td>Content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section>
+                    <h3>Adding Javascript to HTML</h3>
+                    <ul>
+                        <li>Three ways:
+                        <ol>
+                        <li>In the page's <code>&lt;body&gt;</code>; <span class="stress">runs when page loads</span></li>
+                        <li>In the page's <code>&lt;head&gt;</code>; <span class="stress">runs when events occur</span></li>
+                        <li><b>Preferred:</b> In a link to an external <code>.js</code> script file. Example: 
+                            <pre><code>&lt;script src="main.js" /&gt;</code></pre></li>
+                        </ol>
+                        </li>
+                        </ul>
+                </section>
+                
+                <section>
+                    <h3>Javascript</h3>
+                    <h4>Reminder</h4>
+                    <ul class="content">
+                        <li><code>console.log()</code> - output to JavaScript console</li>
+                        <li>Variables
+                            <pre>
+                            <code data-trim no-space class="javascript">
+                            let x = 5;                          // a number
+                            let myString = "Hello, World!"      // a string
+                            let myBoolean = true;               // a boolean
+                            </code>
+                            </pre>
+                        </li>
+                        <li>Expressions
+                            <pre>
+                            <code data-trim no-space class="javascript">
+                            x >= 2; //true
+                            </code>
+                            </pre>
+                        </li>
+                        <li>Conditionals
+                            <pre>
+                            <code data-trim no-space class="javascript">
+                            if ( x === 5 ) {
+                                console.log("x is equal to 5");
+                            }
+                            else {
+                                console.log("x is not equal to 5");
+                            }
+                            </code>
+                            </pre>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Javascript Loops</h3>
+                    <h4>Reminder</h4>
+                        <h4>Loops</h4>
+                            <ul class="content">
+                                <li> For
+                                <pre>
+                                <code data-trim no-space class="javascript">
+                                for (let i = 0; i &lt;= 10; i++) {
+                                  console.log("now i is: "+i);
+                                }
+                                </code>
+                                </pre>
+                                </li>
+                                <li> While
+                                    <pre style="width:500px">
+                                    <code data-trim no-space class="javascript">
+                                    let count = 0;
+                                    while (count &lt;= 10) {
+                                        console.log("count is now: "+count);
+                                        count += 1;
+                                    }
+                                    </code>
+                                    </pre>
+                                </li>
+                            </ul>
+                </section>
+                
+                <section>
+                    <h3>Operators</h3>
+                    <h4>Reminder</h4>
+                    <ul class="content">
+                        <li>Arithmetic operators: +, -, * , /, %</li>
+                        <li>Conditional operators: &amp;&amp;, ||, !, ==</li>
+                        <li><code>==</code> just checks value</li>
+                        <li><code>===</code> also checks type (i.e., exactly equal to).  Example: <code>10 === "10"</code> is false</li>
+                        <li>Many operators auto-convert types.  Example: <code>5 &lt; "7"</code> is true</li>
+                        <li>a &lt; b, a &gt; b, etc., work on both numbers and strings. For strings, you get alpha order.  For numbers, you get numeric order.</li>
+                        <li>String concatenation: <code>+</code></li>
+                        <li>Example: Factorials
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                            fact = 1;
+                            for (i = 1; i &lt;= 100; i++) {
+                                fact *= i; // equivalent to: fact = fact * i;
+                                console.log(i + '! = ' + fact);
+                            }
+                        </code>
+                        </pre>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Functions</h3>
+                    <h4>Reminder</h4>
+                    <p class="content">Functions let us define the code once, and use it many times.</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    function addTwo(number) {
+                      return number + 2;
+                    }
+
+                    const finalAnswer = addTwo(5);
+                    console.log(finalAnswer);
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Javascript</h3>
+                    <h4>Reminder <a href="https://codepen.io/jasrub/pen/MzYNOz?editors=0012" target="_blank">Class Exercise</a></h4>
+                    <p class="content">Write a javascript function class <code>printString</code> that gets a number <code>x</code> and a string <code>str</code>as parameters. <br/>
+                        The function should print the string to the console the number of times. The function should also return a new string which is the number with a period after it and then the string : x. str
+                    </p>
+                    <div class="content">
+                       for example, if we call
+                        <pre data-trim no-space class="javascript">
+                        <code>
+                        let result = printString(3, "Hello");
+                        </code>
+                        </pre>
+                        The console will show:
+                        <pre data-trim no-space class="javascript">
+                        <code>
+                        Hello
+                        Hello
+                        Hello
+                        </code>
+                        </pre>
+                        And <code>console.log(result)</code> will print "3. Hello"
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Scope</h3>
+                    <p>Scope determines the accessibility (visibility) of variables.</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    function addFive(number) {
+                        const someVariable = "you can't see me outside this function";
+                        console.log(someVariable);
+                        return number + 5;
+                    }
+
+                    addFive(10);
+                    console.log(someVariable); // Causes error
+                    </code>
+                    </pre>
+                    <p class="content">This is not going to work. <code class="language-text">someVariable</code> is inside of the <code class="language-text">addFive</code> scope and once <code class="language-text">addFive</code> completes, it throws <code class="language-text">someVariable</code> away since it's now out-of-scope.</p>
+                </section>
+                
+                <section>
+                    <h3>Scope</h3>
+                    <h4>The lifetime of a JavaScript variable</h4>
+                    <div class="content">
+                        <ul>
+                        <li>The lifetime of a JavaScript variable starts when it is declared.</li>
+                        <li>Local variables are deleted when the function is completed.</li>
+                        <li>In a web browser, global variables are deleted when you close the browser window (or tab), but remain available to new pages loaded into the same window.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>Arrays</h1>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content">
+                        JavaScript can hold an array of variables in an Array object. <br/>
+                        Arrays ordered collections of data.
+                    </p>
+                    
+                    <p class="content"> We have 2 ways to define arrays:</p>
+                    <ul class="content">
+                        <li>Square brackets notation (also called Array literal)</li>
+                        <li> the Array object notation</li>
+                    </ul>
+                    <pre >
+                    <code data-trim no-space class="javascript">
+                        let myArray = [1, 2, 3];
+                        let theSameArray = new Array(1, 2, 3);
+                    </code>
+                    </pre>
+                    
+                    <p class="content">* Using array literal is usually easier and more common</p>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content">Arrays can hold any type of variable - number, string, boolean, another array, and an object (coming up)</p>
+                    <img class="stretch" src="images/lecture09/array.png"/>
+                </section>
+                
+                
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content">Arrays can hold any type of variable - number, string, boolean, another array, and an object (coming up)</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let cars = ["Saab", "Volvo", "BMW"];
+                    
+                    const primeNumbers = [1, 2, 3, 5, 7, 11, 13, 17];
+                    
+                    const daysOfTheWeek = [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday"
+                    ];
+                    </code>
+                    </pre>
+                    
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <h4>Access</h4>
+                    <p class="content">
+                        To access individual elements in an array: we use square brackets and reference the number that we want to access. The numbering starts at 0. So the first element is index 0.
+                    </p>
+                    
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let daysOfTheWeek = [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday"
+                    ];
+                    console.log(daysOfTheWeek);
+                    console.log(daysOfTheWeek[0]);
+                    console.log(daysOfTheWeek[1]);
+                    console.log(daysOfTheWeek[6]);
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <h4>Edit</h4>
+                    <p class="content">
+                        We can change an array element using assignment. This statement changes the value of the first element in daysOfTheWeek:        
+                    </p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    daysOfTheWeek[0] = "Web Programming Class Day";
+                    </code>
+                    </pre>
+                    <ul class="content">
+                        <li>Arrays don't have fixed dimensions</li>
+                        <li>They automatically resize as you add data</li>
+                    </ul>
+                    <p class="content">
+                       Adding data to an array:    <br/>
+                      If we want to add an element to the array after it's created. Use <b><code>push</code></b>
+                    </p>
+                    
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const cars = ["Saab", "Volvo", "BMW"];
+                    cars.push("Opel")
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content"> Arrays have some useful built-in properties and methods (more about built-ins - later today)</p>
+                    <ul class="content">
+                        <li>length</li>
+                    <li><code>concat()</code></li>
+                    <li><code>join()</code></li>
+                    <li><code>push()</code> --adds element to end of array and returns new list size</li>
+                    <li><code>shift()</code> --removes and returns element at beginning of list</li>
+                    <li><code>pop()</code> --removes and returns element at end of array</li>
+                    <li><code>unshift()</code> --adds element to front of array and returns new list size</li>
+                    <li><code>sort()</code></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Complete list of array methods and properties</a>
+                    </li></ul>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <h4>Looping over Array Elements</h4>
+                    <p class="content">We now have all the tools we need to print all the variables inside an array</p>
+                
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                        const cities = [
+                          "New York",
+                          "San Francisco",
+                          "Salt Lake City",
+                          "Amsterdam",
+                          "Hong Kong"
+                        ];
+
+
+                        for (let i = 0; i &lt; cities.length; i++) {
+                          console.log(cities[i]);
+                        }
+
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Arrays</h3>
+                    <p><a href="https://codepen.io/jasrub/pen/KrpwoB?editors=0012" target="_blank">class exercise</a></p>
+                    <a href="https://codepen.io/jasrub/pen/KrpwoB?editors=0012" target="_blank">codepen.io/jasrub/pen/KrpwoB?editors=0012</a>
+                </section>
+                
+                <section>
+                    <h1>Objects</h1>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <p class="content">The concept of objects in JavaScript can be understood with real life, tangible objects. <br/><br/>
+                        For example In real life, a car is an <strong>object</strong>. <br/> 
+                        A car has <strong>properties</strong> like weight and color, and <strong>methods</strong> like start and stop:
+                    </p>
+                    <img src="images/lecture09/car.png" class="stretch"/>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <div class="content">
+                        Similar to Arrays, Objects can be defined in two ways:
+                        <ul>
+                            <li>With curly brackets {...} - also called object literal.</li>
+                            <li>With the "new" keyword and Object() function</li>
+                        </ul>
+                        
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                        //Object literal - preferred
+                        let car = {name:"Fiat", model:"500", color:"white"}; // object with keys and values
+                        let emptyCar = {}; // empty object
+                        
+                        //Another way
+                        let myCar = new Object();
+                        </code>
+                        </pre>
+                        
+                    </div>
+                    <img class="stretch" src="images/lecture09/object.png"/>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                        <div class="content">Objects are very useful to group variables together. They include <strong>keys</strong> and <strong>values</strong>. The keys are on the left side of the <code class="language-text">:</code> and represent how you get that piece data of out of the object. <br/>Object keys are unique.
+                    </div>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const car = {name:"Fiat", model:"500", color:"white"};
+                    const person = {
+                      name: "Jane Doe",
+                      city: "Brooklyn",
+                      state: "NY",
+                      favoriteFood: "Pizza",
+                      eyeColor: "blue",
+                      age: 35
+                    };
+                    </code>
+                    </pre>
+                    <p class="content">
+                        We can access object properties in 2 ways:
+                    </p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    console.log(car.name);
+                    console.log(car["name"]); // same as the line above; prefer using the other one
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <p class="content">
+                        Object values can be any type of variable, numbers, strings, boolean and also Arrays and other objects
+                    </p>
+                    
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const person = {
+                        name: {
+                            first: "Jane",
+                            last: "Doe"
+                        }
+                        address: {
+                            street: "35 Bedford"
+                            city: "Brooklyn",
+                            state: "NY"
+                        }
+                        age: 52,
+                        likesChocolate: false,
+                        favoriteFoods: ["Pizza", "Tacos", "Sushi"]
+                    };
+                    
+                    console.log(person.name.first + " " + person.name.last);
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <p class="content">We can assign values to objects. If the key already existed, that value will change, otherwise a new key is added</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let car = {
+                        name:"fiat",
+                        color: "white"
+                    };
+                    
+                    car.color = "red";
+                    car ["color"] = "green; // also works
+                    
+                    car.weight = "850kg";
+                    
+                    car["owner"] = "Jasmin";
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <p class="content">Objects can also have their own functions</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const dog = {
+                      name: "dog",
+                      speak() {
+                        console.log("woof woof");
+                      }
+                    };
+
+                    dog.speak();
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <h5>(Almost) everything in JavaScript is an object</h5>
+                    
+                    <ul class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics#You've_been_using_objects_all_along" target="_blank">You've been using objects all along</a></li>
+                        <li>JavaScript has many built-in objects</li>
+                        <li><code>console</code> is a built-in object that has a method <code>log()</code></li>
+                        <li>strings are also objects: <pre><code data-trim>myString.split(',');</code></pre></li>
+                        <li><code>window</code> is a built-in object that represents our browser window. More on that soon.</li>
+                    </ul>
+                    
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">MDN about objects</a>
+                </section>
+                
+                
+                <section>
+                    <h3>Objects</h3>
+                    <h4>Context</h4>
+                    <p class="content">The <b>this</b> keyword</p>
+                    
+                    <p class="content">Let's say we have a person object and we want it to have a function that returns the person's full name</p>
+                    
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    let person = {
+                        firstName: "John",
+                        lastName : "Doe",
+                        id       : 5566,
+                        fullName : function() {
+                            return this.firstName + " " + this.lastName;
+                        }
+                    };
+                    </code>
+                    </pre>
+                    
+                    <p class="content">The JavaScript <b>this</b> keyword refers to the object it belongs to. <br/>
+                        A good rule of thumb (that is unfortunately not always true) is that if you're inside an object of some sort, the this will be that object. If not, it'll be the global object, window.
+                    </p>
+                </section>
+                
+                <section>
+                    <h3>Objects</h3>
+                    <h4>Constructor Function</h4>
+                    <div class="content">
+                        There is another way to create objects, by defining a function that creates an Object.
+                        <ol>
+                         <li>Define the object type by writing a constructor function. There is a strong convention, with good reason, to use a capital initial letter.</li>
+                         <li>Create an instance of the object with <code>new</code>.</li>
+                        </ol>
+                        
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                        function Car(make, model, year) {
+                          this.make = make;
+                          this.model = model;
+                          this.year = year;
+                        }
+                        </code>
+                        </pre>
+                        <p>Notice the use of this to assign values to the object's properties based on the values passed to the function.</p>
+
+                        <p>Now we can create an object called mycar as follows:</p>
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                        let mycar = new Car('Eagle', 'Talon TSi', 1993);
+                        </code>
+                        </pre>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>Builtins</h1>
+                </section>
+                
+                <section>
+                    <h3>Builtins</h3>
+                    <p>Lots of functions and objects already exist for us! Smart people have created this commonly-used functions for things we often need. For example, if we have a string and we want to make everything lowercase, we can do this:</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const sentence = "ThIs HaS wEiRd CaSiNg On It";
+                    console.log(sentence.toLowerCase());
+                    </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h3>Builtins</h3>
+                    <p class="content">Math is another javascript built in object that has many useful functions</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    console.log(Math.round(5.1));
+                    console.log(Math.sqrt(2));
+
+                    const name = "Jasmin Rubinovitz";
+                    console.log(name.substr(6, 3));
+                    </code>
+                    </pre>
+                    <p class="content">We can call Math.round(5.1) and it'll return that number rounded (in this case, 5). We can use string.substr(indexToStart, howManyCharactersToInclude) to return part of a string. </p>
+                    <p class="content"> We'll introduce them as we go but know there are a <i>lot</i> of them. You'll learn by doing.</p>
+                    <p class="content">We can use the browser console to check what built in methods exists for a variable</p>
+                    <br/>
+                    <p class="content">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2">String methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#Methods">Number methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods">Math Methods</a>
+                    </p>
+                </section>
+                
+                <section>
+                    <h1>The DOM</h1>
+                </section>
+                
+                <section>
+                    <h3>The DOM</h3>
+                    <p class="content">The Document Object Model (DOM) is a programming interface for HTML documents. It represents the page so that programs can change the document structure, style, and content. </p>
+                    <p class="content">The DOM is actually a collection of objects and methods that you can call from JavaScript to interact with HTML/CSS of the page. </p>
+                    <br/>
+                    <p class="content"><a href="https://codepen.io/jasrub/pen/LXVNQL" target="_blank">DOM Example</a> - <a href="https://codepen.io/jasrub/pen/LXVNQL" target="_blank">https://codepen.io/jasrub/pen/LXVNQL</a></p>
+                    
+                </section>
+                
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
