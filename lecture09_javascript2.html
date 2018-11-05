@@ -643,6 +643,129 @@
                     
                 </section>
                 
+                <section>
+                    <h3>Built in DOM elements</h3>
+                        <ul class="content">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window" target="_blank"><code>window</code></a> - The browser window
+                            <ul>
+                            <li>Example 1: <code>window.close()</code> - Closes the current window</li>
+                            <li>Example 2: <code>window.pageYOffset</code> - Sets or returns the Y position of the current page in relation to the upper left corner of a window's display area</li>
+                            </ul>
+                            </li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator" target="_blank"><code>navigator</code></a> - Information about the web browser you are using
+                            <ul>
+                            <li>Example: <code>navigator.userAgent</code> - Returns the value of the user-agent header sent by the client to the server</li>
+                            </ul>
+                            </li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen" target="_blank"><code>screen</code></a> - Information about the screen occupied by the web browser
+                            <ul>
+                            <li>Example: <code>screen.width</code> - Returns width of the display screen</li>
+                            </ul>
+                            </li>
+                            </ul>
+                </section>
+                
+               <section>
+                    <h3>Built in DOM elements</h3>
+                        <ul class="content">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History" target="_blank"><code>history</code></a> - List of pages the user has visiteds
+                            <ul>
+                            <li>Example: <code>history.go(-1)</code> - Go back to the previous page (if any)</li>
+                            </ul>
+                            </li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location" target="_blank"><code>location</code></a> - URL of the current document
+                            <ul>
+                            <li>Example: <code>location.pathname</code> - Sets or returns the path of the current URL</li>
+                            </ul>
+                            </li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document" target="_blank"><code>document</code></a> - Current HTML page object model
+                            <ul>
+                            <li>Example 1: <code>document.getElementsByTagName("<span class="stress">some tag</span>")</code> - Get all elements of a certain type; returns an array</li>
+                            <li>Example 2: <code><span class="stress">element</span> = document.getElementById("<span class="stress">some ID</span>")</code> - Get a specific element on the page; returns an element
+                            <ul>
+                            <li>Example 2A: <code><span class="stress">element</span>.getElementsByTagName("<span class="stress">some tag</span>")</code> - Same as above; returns an array</li>
+                            </ul>
+                            </li>
+                            <li>Example 3: <code><a href="https://developer.mozilla.org/en/DOM/document.createElement" target="_blank">document.createElement("<span class="stress">some element</span>")</a></code></li>
+                            </ul>
+                            </li>
+                            </ul>
+                </section>
+                
+                <section>
+                    <h3>Built in pop up boxes</h3>
+                    <ul>
+                        <li><code>alert('XSS');</code> - Message box</li>
+                        <li><code>confirm('Are you sure you want to delete all records?');</code> - Confirmation; returns true or false</li>
+                        <li><code>prompt('What is your name?');</code> - Returns user input string</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Events and Listeners</h1>
+                </section>
+                
+                <section>
+                    <h3>Event Listeners</h3>
+                    <img class="stretch" src="images/lecture09/MDN-mozilla-events-runway.png">
+                </section>
+                
+                <section>
+                    <h3>Events and Listeners</h3>
+                    <p class="content">Web sites are meant to be reactive to users. In order to be reactive to them, we need to wait for them to do stuff, like click a button or type in an input. The way we do that is we wait for events to happen. An event is created every time certain events happens like when a user clicks something or when they type something. We respond to these events by having what are called event listeners. We give an event listener a function to run whenever an event happens. </p>
+                    
+                    <div class="content">
+                        <br/>
+                        HTML
+                        <pre>
+                        <code data-trim no-space class="html">
+                        &lt;button class="event-button"&gt;Click me!&lt;/button&gt;
+                        </code>
+                        </pre>
+                        
+                        JavaScript
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                          const button = document.querySelector('.event-button');
+                          button.addEventListener('click', function () {
+                            alert("Hey there!");
+                          });
+                        </code>
+                        </pre>
+                    </div>
+                    <a class="content" href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">developer.mozilla.org/en-US/docs/Web/Events</a>
+                </section>
+                
+                <section>
+                    <h3>Event Attributes</h3>
+                    <ul class="content">
+                        <li>HTML elements have event attributes
+                        <ul>
+                        <li><code>onclick</code></li>
+                        <li><code>onselect</code></li>
+                        <li><code>onchange</code></li>
+                        <li><code>onmouseover</code></li>
+                        <li><code>onkeyup</code></li>
+                        <li><code>onkeydown</code></li>
+                        </ul>
+                        </li>
+                        <li>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Event</a></li>
+                        <li>JavaScript functions can be set as event handlers</li>
+                        <li>Example: <code>&lt;h2 onclick="alert('Do you like green eggs and ham?');"&gt;I am Sam&lt;/h2&gt;</code></li>
+                        </ul>
+                    <p class="footnote">The significant drawback with inline events is that unlike event listeners, you may only have one inline event assigned. Inline events are stored as an attribute/property of the element, meaning that it can be overwritten. <a href="https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick" target="_blank">read more</a></p>
+                </section>
+                
+                <section>
+                    <h3>Javascript Class Exercise</h3>
+                    <p>We will follow along the <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery" target="_blank">MDN exercise</a> to build an image gallery.
+                        <br/>
+                        <br/>
+                        <a class="content" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery</a>
+                    </p>
+                </section>
+                
+                
             </div>
         </div>
         <script src="lib/js/head.min.js"></script>
