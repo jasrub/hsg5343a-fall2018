@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04 Input Size</title>
+        <style>
+            #square {
+                height:200px;
+                width:200px;
+                border-radius: 0%;
+                background-color: aquamarine;
+                
+                transition: all 1s;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Change Style With JavaScript - Size Input</h2>
+
+        <p id="square"></p>
+        
+        
+        <p>
+            height: <input id="height" type="text">  width: <input id="width" type="text"> 
+            <button onclick="changeSize()">Change Size</button>
+        </p>
+        <script>
+            const square = document.getElementById("square");
+            
+            function changeSize() {
+                let height = document.getElementById("height").value + "px";
+                let width = document.getElementById("width").value + "px";
+                console.log(height, width);
+                square.style.height = height;
+                square.style.width = width;
+            }
+        </script>
+
+    </body>
+</html>

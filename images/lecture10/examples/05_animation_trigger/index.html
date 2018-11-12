@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @keyframes slide {
+                from{
+                    left: 0%; 
+                }
+                to {
+                    left: 100%; 
+                }
+            }
+            #square {
+                height:200px;
+                width:200px;
+                border-radius: 0%;
+                background-color: aquamarine; 
+            }
+            
+            .sliding {
+                position:relative;
+                animation-name: slide;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Change Style With JavaScript - Add and remove class</h2>
+
+        <p id="square"></p>
+        
+        
+        <button onclick="addClass()">Add class</button>
+        <button onclick="removeClass()">Remove class</button>
+        
+        <script>
+            const square = document.getElementById("square");
+            
+            function addClass() {
+                square.classList.add("sliding")
+            }
+            function removeClass() {
+                square.classList.remove("sliding");
+            }
+        </script>
+
+    </body>
+</html>

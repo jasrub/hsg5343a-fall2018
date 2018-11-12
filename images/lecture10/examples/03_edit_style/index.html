@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03 Edit Style</title>
+        <style>
+            #square {
+                height:200px;
+                width:200px;
+                border-radius: 0%;
+                background-color: aquamarine;
+                
+                transition: all 1s;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Change Style With JavaScript</h2>
+
+        <p id="square"></p>
+        
+        <button onclick="makeRed()">Red</button>
+        <button onclick="makeBlue()">Blue</button>
+        <button onclick="makeCircle()">Circle</button>
+        <button onclick="makeSquare()">Square</button>
+        <button onclick="hide()">Hide</button>
+        <button onclick="show()">Show</button>
+        <button onclick="blueAndCircle()">Blue and Circle</button>
+        
+        <script>
+            var square = document.getElementById("square");
+            function makeRed() {
+                square.style.backgroundColor = "red";
+            }
+            
+            function makeBlue() {
+                square.style.backgroundColor = "blue";
+            }
+            
+            function makeSquare() {
+                square.style.borderRadius = "0px";
+            }
+            
+            function makeCircle() {
+                square.style.borderRadius = "50%";
+            }
+            
+            function hide() {
+                square.style.opacity = 0;
+                // square.style.display = "none";
+            }
+            function show() {
+                square.style.opacity = 1;
+                // square.style.display = "block";
+            }
+            function blueAndCircle() {
+                makeBlue();
+                makeCircle();
+            }
+        </script>
+
+    </body>
+</html>

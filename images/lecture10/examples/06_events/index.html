@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #square {
+                height:200px;
+                width:200px;
+                border-radius: 0%;
+                background-color: aquamarine; 
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <h2>Event Listeners</h2>
+
+        <p id="square"></p>
+        
+        <p>When editing input fields "change" and "input" events are called</p>
+        <p>
+            height: <input id="height" type="text">  width: <input id="width" type="text"> 
+        </p>
+        
+        
+        
+        
+        <script>
+            const square = document.getElementById("square");
+            
+            function makeRed() {
+                square.style.backgroundColor = "red";
+            }
+            
+            function makeBlue() {
+                square.style.backgroundColor = "blue";
+            }
+            
+            function makeSquare() {
+                square.style.borderRadius = "0%";
+            }
+            
+            function makeCircle() {
+                square.style.borderRadius = "50%";
+            }
+            
+            square.addEventListener('mouseover', makeRed);
+            square.addEventListener('mouseout', makeBlue);
+            
+            square.addEventListener('click', function() {
+                if (square.style.borderRadius === "0%") {
+                    makeCircle();
+                }
+                else {
+                    makeSquare();
+                }
+            });
+            
+            
+            // "change" events occur when an input element loses focus.
+            // "input" occurs immediately after the value of an element has changed
+            const heightInput = document.getElementById("height");
+            heightInput.addEventListener('change', function() {
+                square.style.height = heightInput.value + "px";
+            })
+            
+            const widthInput = document.getElementById("width");
+            widthInput.addEventListener('change', function() {
+                square.style.width = widthInput.value + "px";
+            })
+        </script>
+
+    </body>
+</html>

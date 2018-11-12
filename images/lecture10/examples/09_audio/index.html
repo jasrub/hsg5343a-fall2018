@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .circle {
+                height:100px;
+                width:100px;
+                border-radius: 50%;
+                background-color: cornflowerblue;
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                padding: 40px 35px;
+                box-sizing: border-box;
+                margin: 10px;
+            }
+            .circle:hover {
+                background-color: cadetblue;
+            }
+            .circle:active {
+                background-color: blueviolet;
+            }
+            
+            .volume {
+                background-color: palevioletred;
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <h2>Audio Control</h2>
+        
+        <audio id="birds"><source src="./cartoon-birds.wav"></audio>
+        <audio id="rain"><source src="./heavy-rain-daniel_simon.wav"></audio>
+        <audio id="bell"><source src="./bycicle.wav"></audio>
+        <audio id="tinkle"><source src="./tinkle.wav"></audio>
+
+        <p class="circle" id="rain-control" onmouseover="play('rain')" onmouseout="pause('rain')">rain</p>
+        <p class="circle" id="bell-control" onclick="play('bell')">bell</p>
+        <p class="circle" id="birds-control" ondblclick="play('birds')">birds</p>
+        <p class="circle" id="birds-control" ontouch="play('tinkle')" onclick="play('tinkle')">tinkle</p>
+        
+        <div>
+            Volume:
+            <span onclick="updateVolume('down')" class="circle volume">-</span><span onclick="updateVolume('up')" class="circle volume">+</span>
+        </div>
+        
+        <p>Volume: <span id="volume-value"></span></p>
+        
+        <script>
+            
+            function play(elementId) {
+                let el = document.getElementById(elementId);
+                el.currentTime = 0;
+                el.play();
+            }
+            
+            function pause(elementId) {
+                let el = document.getElementById(elementId);
+                el.pause();
+            }
+            
+            
+            // listen to space press, when pressed, play all audio files
+            document.addEventListener('keypress', function(event){
+                // event listeners has an event object
+                console.log("key name: ", event.key, " key code: ", event.keyCode)
+                
+                // space bar is 32
+                if(event.keyCode == 32){
+                   audios = document.getElementsByTagName('audio');
+                    for (i=0; i<audios.length; i++) {
+                        audios[i].play();
+                    }
+                }  
+            });
+            
+            // controlling the volume of the birds audio part
+            const birds = document.getElementById("birds")
+            const volumeValueElement = document.getElementById("volume-value");
+            volumeValueElement.innerHTML = birds.volume;
+            
+            function updateVolume(command) {
+                if (command === "up") {
+                    if (birds.volume < 1) {
+                        birds.volume += 0.1;
+                    } 
+                }
+                else {
+                    if (birds.volume > 0.01) {
+                        birds.volume -= 0.1;
+                    }
+                }
+                volumeValueElement.innerHTML = birds.volume.toFixed(1);
+            }
+        </script>
+
+    </body>
+</html>
