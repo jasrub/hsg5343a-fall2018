@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 11: Javascript IIII</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 11 - Javascript IIII</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+
+                <section>
+                    javascript
+                    get elements
+                    arrays
+                    events
+                    callbacks
+                    timeouts
+                    css variables?
+                    canvas
+                    ForEach 
+                    ForIn
+                    animate.css https://daneden.github.io/animate.css/
+
+                    libraries
+                    svg
+                    three js
+                    p5 js
+
+                    AE Scripts with JSX
+                    https://helpx.adobe.com/after-effects/using/scripts.html
+
+
+                    After Effect scripts
+
+
+                </section>
+
+                <section>
+                    <h1>JavaScript</h1>
+                </section>
+
+                <section>
+                    <h5>Reminder</h5>
+                    <h3>Document Object Model DOM</h3>
+                    <ul class="content">
+                        <li>The big idea: use JavaScript to dynamically modify HTML content <em>after it is loaded</em>.  Yes, you can mix HTML and JavaScript.</li>
+                        <li>The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Given the tree, you can get, change, add, or delete HTML elements. Example of a DOM tree: <a href="https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core" target="_blank">https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core</a></li>
+                        <li>A standard programming interface for HTML (API)</li>
+                        <li>The Document Object Model is browser independent</li>
+                        <li>Very powerful: allows progressive enhancements of pages, and responsive interactions on the client-side</li>
+                        <li>Standardized by the W3C</li>
+                        <li>Each document is a hierarchy</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h5>Reminder</h5>
+                    <h3>The DOM</h3>
+                    <table class="content">
+                        <tbody>
+                            <tr>
+                                <td width="50%" style="vertical-align:middle;">
+                                    <pre>
+                                    <code data-trim no-space class="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;title&gt;Page Title&lt;/title&gt;
+                                            &lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
+                                            &lt;meta http-equiv="Content-Language" content="en-us" /&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h1&gt;This is a heading&lt;/h1&gt;
+                                            &lt;p&gt;A paragraph with a &lt;a href="http://www.google.com/"&gt;link&lt;/a&gt;.&lt;/p&gt;
+                                            &lt;ul&gt;
+                                                &lt;li&gt;a list item&lt;/li&gt;
+                                                &lt;li&gt;another list item&lt;/li&gt;
+                                                &lt;li&gt;a third list item&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                    </code>
+                                    </pre>
+                                </td>
+                                <td style="vertical-align:middle;">
+                                    <img width="100%" height="auto" src="images/lecture11/dom_tree.gif"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+                <section>
+                    <h5>Reminder</h5>
+                    <h3>Finding Elements in the document using CSS selector</h3>
+                    <ul>
+                        <li>getElementsByTagName</li>
+                        <li>getElementById</li>
+                        <li>getElementsByClass</li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank">querySelector</a></li>
+                        <li>querySelectorAll</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Events and Event Listeners</h3>
+                    <div class="content">
+                    <h4>The idea of a <span class="stress">listener</span> (a.k.a., event handler)</h4>
+                    <ul>
+                        <li>"Hey, if this thing (i.e., the event) occurs, I'll do this..."</li>
+                    </ul>
+                        <br/>
+                    <h4>The modern way: <code><span class="stress">element.</span>addEventListener()</code> to a DOM element</h4>
+                    <ul>
+                        <li>The idea: attach a single listener to a single target</li>
+                        <li>Takes in two required parameters: an DOM event type (string) and a JavaScript function (typically)
+                            <ul>
+                                <li>Note: the JavaScript listener function has a default parameter: an event object!</li>
+                            </ul>    
+                        </li>
+                    </ul>
+                        <br/>
+                    <h4>DOM Event Types</h4>
+                    <ul>
+                        <li>Too many to list, see <a href="https://developer.mozilla.org/en-US/docs/Mozilla_event_reference" target="_blank">https://developer.mozilla.org/en-US/docs/Mozilla_event_reference</a></li>
+                        <li>Remember, event types are <span class="stress">strings</span>!</li>
+                    </ul>
+                        </div>
+                </section>
+                
+                                <section>
+                    <h3>Events and Event Listeners</h3>
+                    <div class="content">
+
+                    <h4>Handling Keyboard Events</h4>
+                    <ul>
+                        <li>Keycodes: <a href="https://developer.mozilla.org/en-US/docs/DOM/KeyboardEvent?redirectlocale=en-US&amp;redirectslug=DOM%2FEvent%2FUIEvent%2FKeyEvent" target="_blank">https://developer.mozilla.org/en-US/docs/DOM/KeyboardEvent?redirectlocale=en-US&amp;redirectslug=DOM%2FEvent%2FUIEvent%2FKeyEvent</a></li>
+                        <li>Example:
+                            <pre>
+                            <code no-space data-trim class="html">
+                            &lt;script&gt;
+                              document.addEventListener("keydown", function(event) {
+                                console.log(event.keyCode);
+                                if (event.keyCode == 32) {
+                                  console.log("I see that you pressed the space bar!");
+                                }
+                              });
+                            &lt;/script&gt;
+                            </code>
+                            </pre>
+                        </li>
+                        
+                    </ul>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN Events Reference</a>
+                        <li class="footnote" style="text-align: left">[audio and drum-kit examples]</li>
+                        </div>
+                </section>
+                
+                <section>
+                    <h4>Reminder</h4>
+                    <h3>Arrays and built in methods</h3>
+                    <p class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Complete list of array methods and properties</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2">String methods;</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#Methods">Number methods;</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods">Math Methods</a></li>
+                    </p>
+                    <li class="footnote" style="text-align: left">[Rainbow and key sequence example]</li>
+                </section>
+
+                <section>
+                    <h3>Built In Date Object</h3>
+                </section>
+
+                <section>
+                    <h3>Timeouts and Time Intervals</h3>
+                </section>
+
+                <section>
+                    <h3>For Loops</h3>
+                </section>
+
+                <section>
+                    <h1> JavaScript Libraries</h1>
+                </section>
+
+                <section>
+                    <h3>Why Use a Good JavaScript Library</h3>
+                    <ul class="content">
+                        <li>Rapid development</li>
+                        <li>Wrapper for JavaScript</li>
+                        <li>Lightweight</li>
+                        <li>Shorter code to write</li>
+                        <li>Allows for developers to create abstractions (i.e., plugins)</li>
+                        <li>A lot of browser incompatibility worries are alleviated</li>
+                        <li>Find stuff and do something to it</li>
+                        <li>Plethora of JavaScript libraries available</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>External Libraries</h3>
+                    <ul>
+                        svg.js
+                        animate.css
+                        three.js
+                        A-frame
+                        p5.js
+                        paper.js
+                        d3.js
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Javascript and the DOM</h1>
+                    <h4>Connecting JS, CSS and HTML</h4>
+                </section>
+
+                <section>
+                    <h1>Learning from Examples</h1>
+
+                    <p>Download the <a href="images/lecture10/examples.zip">Examples</a> file</p>
+                </section>
+
+                <section>
+                    <h1>The DOM</h1>
+                </section>
+
+                <section>
+                    <h3>The DOM</h3>
+                    <p class="content">The Document Object Model (DOM) is a programming interface for HTML documents. It represents the page so that programs can change the document structure, style, and content. </p>
+                    <p class="content">The DOM is actually a collection of objects and methods that you can call from JavaScript to interact with HTML/CSS of the page. </p>
+                    <br/>
+                    <p class="content"><a href="https://codepen.io/jasrub/pen/LXVNQL" target="_blank">DOM Example</a> - <a href="https://codepen.io/jasrub/pen/LXVNQL" target="_blank">https://codepen.io/jasrub/pen/LXVNQL</a></p>
+
+                </section>
+
+                <section>
+                    <h3>Built in DOM elements</h3>
+                    <ul class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window" target="_blank"><code>window</code></a> - The browser window
+                            <ul>
+                                <li>Example 1: <code>window.close()</code> - Closes the current window</li>
+                                <li>Example 2: <code>window.pageYOffset</code> - Sets or returns the Y position of the current page in relation to the upper left corner of a window's display area</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator" target="_blank"><code>navigator</code></a> - Information about the web browser you are using
+                            <ul>
+                                <li>Example: <code>navigator.userAgent</code> - Returns the value of the user-agent header sent by the client to the server</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen" target="_blank"><code>screen</code></a> - Information about the screen occupied by the web browser
+                            <ul>
+                                <li>Example: <code>screen.width</code> - Returns width of the display screen</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Built in DOM elements</h3>
+                    <ul class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History" target="_blank"><code>history</code></a> - List of pages the user has visiteds
+                            <ul>
+                                <li>Example: <code>history.go(-1)</code> - Go back to the previous page (if any)</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location" target="_blank"><code>location</code></a> - URL of the current document
+                            <ul>
+                                <li>Example: <code>location.pathname</code> - Sets or returns the path of the current URL</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document" target="_blank"><code>document</code></a> - Current HTML page object model
+                            <ul>
+                                <li>Example 1: <code>document.getElementsByTagName("<span class="stress">some tag</span>")</code> - Get all elements of a certain type; returns an array</li>
+                                <li>Example 2: <code><span class="stress">element</span> = document.getElementById("<span class="stress">some ID</span>")</code> - Get a specific element on the page; returns an element
+                                    <ul>
+                                        <li>Example 2A: <code><span class="stress">element</span>.getElementsByTagName("<span class="stress">some tag</span>")</code> - Same as above; returns an array</li>
+                                    </ul>
+                                </li>
+                                <li>Example 3: <code><a href="https://developer.mozilla.org/en/DOM/document.createElement" target="_blank">document.createElement("<span class="stress">some element</span>")</a></code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+
+
+                <section>
+                    <h1>Builtins</h1>
+                </section>
+
+                <section>
+                    <h3>Builtins</h3>
+                    <p>Lots of functions and objects already exist for us! Smart people have created this commonly-used functions for things we often need. For example, if we have a string and we want to make everything lowercase, we can do this:</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    const sentence = "ThIs HaS wEiRd CaSiNg On It";
+                    console.log(sentence.toLowerCase());
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Builtins</h3>
+                    <p class="content">Math is another javascript built in object that has many useful functions</p>
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                    console.log(Math.round(5.1));
+                    console.log(Math.sqrt(2));
+
+                    const name = "Jasmin Rubinovitz";
+                    console.log(name.substr(6, 3));
+                    </code>
+                    </pre>
+                    <p class="content">We can call Math.round(5.1) and it'll return that number rounded (in this case, 5). We can use string.substr(indexToStart, howManyCharactersToInclude) to return part of a string. </p>
+                    <p class="content"> We'll introduce them as we go but know there are a <i>lot</i> of them. You'll learn by doing.</p>
+                    <p class="content">We can use the browser console to check what built in methods exists for a variable</p>
+                    <br/>
+                    <p class="content">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods_2">String methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#Methods">Number methods;</a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods">Math Methods</a>
+                    </p>
+                </section>
+
+
+                <section>
+                    <h1>Events and Listeners</h1>
+                </section>
+
+                <section>
+                    <h3>Event Listeners</h3>
+                    <img class="stretch" src="images/lecture09/MDN-mozilla-events-runway.png">
+                </section>
+
+                <section>
+                    <h3>Events and Listeners</h3>
+                    <p class="content">Web sites are meant to be reactive to users. In order to be reactive to them, we need to wait for them to do stuff, like click a button or type in an input. The way we do that is we wait for events to happen. An event is created every time certain events happens like when a user clicks something or when they type something. We respond to these events by having what are called event listeners. We give an event listener a function to run whenever an event happens. </p>
+
+                    <div class="content">
+                        <br/>
+                        HTML
+                        <pre>
+                        <code data-trim no-space class="html">
+                        &lt;button class="event-button"&gt;Click me!&lt;/button&gt;
+                        </code>
+                        </pre>
+
+                        JavaScript
+                        <pre>
+                        <code data-trim no-space class="javascript">
+                          const button = document.querySelector('.event-button');
+                          button.addEventListener('click', function () {
+                            alert("Hey there!");
+                          });
+                        </code>
+                        </pre>
+                    </div>
+                    <a class="content" href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">developer.mozilla.org/en-US/docs/Web/Events</a>
+                </section>
+
+                <section>
+                    <h3>Event Attributes</h3>
+                    <ul class="content">
+                        <li>HTML elements have event attributes
+                            <ul>
+                                <li><code>onclick</code></li>
+                                <li><code>onselect</code></li>
+                                <li><code>onchange</code></li>
+                                <li><code>onmouseover</code></li>
+                                <li><code>onkeyup</code></li>
+                                <li><code>onkeydown</code></li>
+                            </ul>
+                        </li>
+                        <li>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Event</a></li>
+                        <li>JavaScript functions can be set as event handlers</li>
+                        <li>Example: <code>&lt;h2 onclick="alert('Do you like green eggs and ham?');"&gt;I am Sam&lt;/h2&gt;</code></li>
+                    </ul>
+                    <p class="footnote">The significant drawback with inline events is that unlike event listeners, you may only have one inline event assigned. Inline events are stored as an attribute/property of the element, meaning that it can be overwritten. <a href="https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick" target="_blank">read more</a></p>
+                </section>
+
+
+
+
+                <section>
+                    <h1>Arrays</h1>
+                </section>
+
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content">Arrays can hold any type of variable - number, string, boolean, another array, and an object (coming up)</p>
+                    <img class="stretch" src="images/lecture09/array.png"/>
+                </section>
+
+
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content">
+                        JavaScript can hold an array of variables in an Array object. <br/>
+                        Arrays ordered collections of data.
+                    </p>
+
+                    <p class="content"> We have 2 ways to define arrays:</p>
+                    <ul class="content">
+                        <li>Square brackets notation (also called Array literal)</li>
+                        <li> the Array object notation</li>
+                    </ul>
+                    <pre >
+                    <code data-trim no-space class="javascript">
+                        let myArray = [1, 2, 3];
+                        let theSameArray = new Array(1, 2, 3);
+                    </code>
+                    </pre>
+
+                    <p class="content">* Using array literal is usually easier and more common</p>
+                </section>
+
+
+                <section>
+                    <h3>Arrays</h3>
+                    <p class="content"> Arrays have some useful built-in properties and methods (more about built-ins - later today)</p>
+                    <ul class="content">
+                        <li>length</li>
+                        <li><code>concat()</code></li>
+                        <li><code>join()</code></li>
+                        <li><code>push()</code> --adds element to end of array and returns new list size</li>
+                        <li><code>shift()</code> --removes and returns element at beginning of list</li>
+                        <li><code>pop()</code> --removes and returns element at end of array</li>
+                        <li><code>unshift()</code> --adds element to front of array and returns new list size</li>
+                        <li><code>sort()</code></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Complete list of array methods and properties</a>
+                        </li></ul>
+                </section>
+
+                <section>
+                    <h3>Arrays</h3>
+                    <h4>Looping over Array Elements</h4>
+                    <p class="content">We now have all the tools we need to print all the variables inside an array</p>
+
+                    <pre>
+                    <code data-trim no-space class="javascript">
+                        const cities = [
+                          "New York",
+                          "San Francisco",
+                          "Salt Lake City",
+                          "Amsterdam",
+                          "Hong Kong"
+                        ];
+
+
+                        for (let i = 0; i &lt; cities.length; i++) {
+                          console.log(cities[i]);
+                        }
+
+                    </code>
+                    </pre>
+                </section>
+
+
+                <section>
+                    <h3>Assignment</h3>
+                    <p>Create a Github repository for you final project</p>
+                    <p>Create an index.html file that outlines the project structure
+                        <br/>
+                        (for now, don't worry about the layout, design, animations etc. we will work on this next)
+                    </p>
+                </section>
+
+
+
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
