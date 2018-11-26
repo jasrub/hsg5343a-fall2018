@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Web Programming I: Lecture 12: Interaction Methods</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/jasmin.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <style>
+            .reveal h3 {
+                text-transform: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>SVA HSG5343a Fall 2018</h4>
+                    <h1>Web Programming I</h1>
+
+                    <div class="lecture-title">Lecture 12 - Interaction Methods</div>
+
+                    <br/>
+                    <p>Jasmin Rubinovitz</p>
+                    <p><a href="mailto:yrubinovitz@sva.edu">yrubinovitz@sva.edu</a></p>
+                </section>
+                
+                <section>
+                    <h1>Experimental Interaction Methods</h1>
+                    <a class="content" href="images/lecture12/examples.zip">examples</a>
+                </section>
+
+                <section>
+                    <h3>Ways of interacting in the browser</h3>
+                    <h5>User Input</h5>
+                    <ul>
+                        <li>mouse
+                            <ul>
+                                <li>move</li>
+                                <li>click</li>
+                                <li>scroll</li>
+                                <li>drag</li>
+                            </ul>
+                        </li>
+                        <li>Keyboard</li>
+                        <li>Touch</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Ways of interacting in the browser</h3>
+                    <h5>Experimental Technologies</h5>
+                    <ul>
+                        <li>Audio + Speech</li>
+                        <li>Camera</li>
+                        <li>Device Motion and Orientation</li>
+                        <li>Device location</li>
+                        <li>Web GL (3D, Mixed Reality)</li>
+                        <li><a href="https://experiments.withgoogle.com/collection/chrome" target="_blank">More</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Demos_of_open_web_technologies" target="_blank">more</a></li>
+                    </ul>
+                    <p class="footnote">* Experimental technologies in web are new technologies that are sometimes still in development and standardization, which means they are not always supported by all browser and that their behavior might change in the future</p>
+                </section>
+                
+                <section>
+                    <h3>Audio and Speech</h3>
+                    <p>
+                        <a href="https://github.com/mdn/web-speech-api" target="_blank">Web Speech API</a>
+                    </p>
+                    <p class="content">
+                        The Web Speech API provides two distinct areas of functionality — speech recognition, and speech synthesis (also known as text to speech, or TTS) — which open up interesting new possibilities for accessibility, and control mechanisms.
+                    </p>
+                    <p class="content">Support for Web Speech API speech recognition is still getting there across mainstream browsers, and is currently limited to the latest versions of Firefox and Chrome. Speech synthesis <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#SpeechSynthesis" target="_blank">is more widely supported</a></p>
+                </section>
+                
+                <section>
+                    <h3>Device Motion and Orientation</h3>
+                    <p>Mobile devices contain sensors that can determine the device motion and orientation</p>
+                    <p>There are Javascript events that handle changes in device motion and orientation: <code>DeviceOrientationEvent</code> and <code>DeviceMotionEvent</code></p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation" target="_blank">Detecting Device Orientation</a>
+                </section>
+                
+                <section>
+                    <h3>Device GeoLocation</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API" target="_blank">Geolocation API</a></li>
+                        <li><a href="https://wiki.openstreetmap.org/wiki/Nominatim#Reverse_Geocoding" target="_blank">Reverse Geocoding</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Camera</h3>
+                    <p class="content">The <code>MediaDevices.getUserMedia()</code> method prompts the user for permission to use a media input which produces a <code>MediaStream</code>. a Media stream can be from a camera device, microphone, screen recording etc.</p>
+                    
+                    <ul class="content">
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia" target="_blank">getUserMedia</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos">Taking still photos</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Mixed Reality on the web</h3>
+                    
+                    <p class="content">WebVR is an open specification that makes it possible to experience VR in your browser. The goal is to make it easier for everyone to get into VR experiences, no matter what device you have.</p>
+                    
+                    <p class="content">Supported devices: Google cardboard, Daydream, Samsung Gear VR, Oculus Rift, Oculus Go, HTC VIVE, VIVEPORT, Microsoft Mixed Reality Headsets  </p>
+                    
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API" target="_blank">WebVR API</a>
+                </section>
+                
+                <section>
+                    <h3>More Examples</h3>
+                    <a class="content" href="images/lecture12/examples.zip">class examples</a>
+                    <ul class="content">
+                        <li><a href="https://codepen.io/bcarvalho/pen/RZqmZX">Timeline</a></li>
+                        <li><a href="https://codepen.io/knyttneve/pen/bgvmma">Timeline</a></li>
+                        <li><a haref="https://codepen.io/dobladov/pen/kXAXJx">Carousel</a></li>
+                        <li><a href="https://codepen.io/jlnljn/pen/qRxqzR">Automatic Carousel</a></li>
+                        <li><a href="https://codepen.io/RileyAdair/pen/ZvyYzr">slideshow</a></li>
+                        <li><a href="https://codepen.io/ainalem/pen/rGvaaO">Slideshow + anime.js</a></li>
+                        <li><a href="https://codepen.io/dimaZubkov/pen/rLxrXZ">CSS Cross Fade</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3>Assignment</h3>
+                    <p>Continue working on your final projects. We will present them on our last class on 12/17 <br/>
+                        Add CSS and JavaScript to control the look and behavior of the content of your story. <br/>
+                        Submit a weekly progress report and let me know if you have any questions
+                    </p>
+                </section>
+
+
+
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Push each slide change to the browser history
+                history: true,
+                // Display a presentation progress bar
+                progress: true,
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
