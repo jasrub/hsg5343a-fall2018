@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>02 Counter</title>
+    </head>
+    <body>
+
+        <h2>Counting clicks</h2>
+
+        <p>Counter Value:</p><p id="counter-value"></p>
+
+        <button onclick="increaseCounter()">Click!</button>
+        
+        <script>
+            
+            let counter = 0;
+            const htmlCounter = document.getElementById("counter-value");
+            htmlCounter.innerHTML = counter;
+            
+            function increaseCounter() {
+                counter++;
+                htmlCounter.innerHTML = counter;
+            }
+        </script>
+
+    </body>
+</html>
